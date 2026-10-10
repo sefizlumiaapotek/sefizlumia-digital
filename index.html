@@ -111,7 +111,7 @@
                         <span data-i18n="nav_consult">Konsultasi Apoteker</span>
                     </a>
                     <a href="#" onclick="navigateTo('rx-upload-view'); return false;" class="nav-item hover:text-sage-600 transition-colors text-rose-600 font-bold flex items-center gap-1">
-                        <i class="fa-solid fa-file-medical"></i> Unggah Resep Obat Keras
+                        <i class="fa-solid fa-file-medical"></i> <span data-i18n="nav_rx">Unggah Resep Obat Keras</span>
                     </a>
                 </nav>
 
@@ -120,7 +120,7 @@
                     <!-- Direct WhatsApp Connect Button -->
                     <button onclick="openDirectWhatsApp('Halo Apotek Sefizlumia, saya ingin bertanya seputar ketersediaan obat dan konsultasi kesehatan.')" class="hidden sm:flex items-center gap-2 px-3.5 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-xs font-bold text-white shadow-sm transition-all">
                         <i class="fa-brands fa-whatsapp text-base"></i>
-                        <span>WhatsApp Langsung</span>
+                        <span data-i18n="btn_wa_direct">WhatsApp Langsung</span>
                     </button>
 
                     <!-- Cart Button -->
@@ -140,11 +140,6 @@
                         <i class="fa-solid fa-stethoscope"></i>
                         <span data-i18n="pharmacist_portal">Apoteker Masuk</span>
                     </button>
-
-                    <!-- Mobile Menu Button -->
-                    <button onclick="toggleMobileMenu()" class="md:hidden p-2 text-slate-700 hover:bg-slate-100 rounded-lg">
-                        <i class="fa-solid fa-bars text-xl"></i>
-                    </button>
                 </div>
             </div>
         </div>
@@ -156,16 +151,16 @@
         <section id="view-home" class="view-section space-y-12">
             <div class="relative rounded-3xl overflow-hidden bg-gradient-to-r from-sage-800 via-sage-700 to-sage-600 text-white p-8 sm:p-12 lg:p-16 shadow-xl text-center">
                 <div class="max-w-3xl mx-auto space-y-6 relative z-10">
-                    <h1 class="text-3xl sm:text-6xl font-extrabold tracking-tight leading-tight">
+                    <h1 class="text-3xl sm:text-6xl font-extrabold tracking-tight leading-tight" data-i18n="home_title">
                         Apotek Sefizlumia Digital
                     </h1>
-                    <p class="text-lg sm:text-2xl text-sage-100 font-medium tracking-wide">
+                    <p class="text-lg sm:text-2xl text-sage-100 font-medium tracking-wide" data-i18n="home_subtitle">
                         "Sahabat Kesehatan Anda • Konsultasi, Resep Obat Keras & WhatsApp Langsung"
                     </p>
                     <div class="inline-flex flex-wrap justify-center items-center gap-3">
                         <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-xs sm:text-sm font-bold text-emerald-300">
                             <i class="fa-solid fa-clock"></i>
-                            <span id="txt-op-hours">Buka: Senin - Minggu | 08.00 - 21.00 WIB</span>
+                            <span id="txt-op-hours" data-i18n="home_hours">Buka: Senin - Minggu | 08.00 - 21.00 WIB</span>
                         </div>
                     </div>
                     <div class="flex flex-wrap justify-center items-center gap-4 pt-4">
@@ -175,11 +170,11 @@
                         </button>
                         <button onclick="navigateTo('rx-upload-view')" class="px-8 py-4 rounded-2xl bg-rose-600 hover:bg-rose-500 text-white font-bold text-sm shadow-lg transition-all hover:scale-105 flex items-center gap-2">
                             <i class="fa-solid fa-file-medical"></i>
-                            <span>Unggah Resep Obat Keras</span>
+                            <span data-i18n="btn_upload_rx">Unggah Resep Obat Keras</span>
                         </button>
                         <button onclick="openDirectWhatsApp('Halo Apotek Sefizlumia, saya ingin berkonsultasi mengenai obat dan resep dokter.')" class="px-8 py-4 rounded-2xl bg-emerald-600 hover:bg-emerald-700 font-bold text-sm text-white shadow-lg transition-all hover:scale-105 flex items-center gap-2">
                             <i class="fa-brands fa-whatsapp text-lg"></i>
-                            <span>WhatsApp Terhubung Langsung</span>
+                            <span data-i18n="btn_wa_connect">WhatsApp Terhubung Langsung</span>
                         </button>
                     </div>
                 </div>
@@ -191,22 +186,22 @@
                     <div class="w-12 h-12 bg-emerald-50 text-emerald-600 rounded-2xl flex items-center justify-center mx-auto text-xl">
                         <i class="fa-brands fa-whatsapp"></i>
                     </div>
-                    <h3 class="font-bold text-slate-800 text-sm">WhatsApp Terhubung Langsung</h3>
-                    <p class="text-xs text-slate-500">Terhubung langsung ke apoteker tanpa perlu mengetik nomor terlebih dahulu, pesan otomatis tersusun rapi.</p>
+                    <h3 class="font-bold text-slate-800 text-sm" data-i18n="feat_1_h">WhatsApp Terhubung Langsung</h3>
+                    <p class="text-xs text-slate-500" data-i18n="feat_1_p">Terhubung langsung ke apoteker tanpa perlu mengetik nomor terlebih dahulu, pesan otomatis tersusun rapi.</p>
                 </div>
                 <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm text-center space-y-3">
                     <div class="w-12 h-12 bg-rose-50 text-rose-600 rounded-2xl flex items-center justify-center mx-auto text-xl">
                         <i class="fa-solid fa-file-prescription"></i>
                     </div>
-                    <h3 class="font-bold text-slate-800 text-sm">Pilihan Pesanan Resep Obat Keras</h3>
-                    <p class="text-xs text-slate-500">Khusus obat keras, pasien wajib mengunggah foto resep dokter untuk diverifikasi dan disetujui apoteker di sistem.</p>
+                    <h3 class="font-bold text-slate-800 text-sm" data-i18n="feat_2_h">Pilihan Pesanan Resep Obat Keras</h3>
+                    <p class="text-xs text-slate-500" data-i18n="feat_2_p">Khusus obat keras, pasien wajib mengunggah foto resep dokter untuk diverifikasi dan disetujui apoteker di sistem.</p>
                 </div>
                 <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm text-center space-y-3">
                     <div class="w-12 h-12 bg-sage-50 text-sage-600 rounded-2xl flex items-center justify-center mx-auto text-xl">
                         <i class="fa-solid fa-user-doctor"></i>
                     </div>
-                    <h3 class="font-bold text-slate-800 text-sm" data-i18n="feat_1_title">Apoteker Profesional</h3>
-                    <p class="text-xs text-slate-500" data-i18n="feat_1_desc">Dilayani langsung oleh apoteker berlisensi SIPA secara real-time untuk konsultasi obat ringan & bebas.</p>
+                    <h3 class="font-bold text-slate-800 text-sm" data-i18n="feat_3_h">Apoteker Profesional</h3>
+                    <p class="text-xs text-slate-500" data-i18n="feat_3_p">Dilayani langsung oleh apoteker berlisensi SIPA secara real-time untuk konsultasi obat ringan & bebas.</p>
                 </div>
             </div>
         </section>
@@ -220,7 +215,7 @@
                 </div>
                 <div class="flex items-center gap-3">
                     <button onclick="navigateTo('rx-upload-view')" class="px-4 py-2.5 bg-rose-600 hover:bg-rose-700 text-white rounded-xl text-xs font-bold flex items-center gap-2">
-                        <i class="fa-solid fa-file-medical"></i> Khusus Pesan Resep Obat Keras
+                        <i class="fa-solid fa-file-medical"></i> <span data-i18n="cat_rx_btn">Khusus Pesan Resep Obat Keras</span>
                     </button>
                 </div>
             </div>
@@ -271,10 +266,10 @@
             <div class="bg-gradient-to-r from-rose-800 to-rose-700 text-white p-8 sm:p-10 rounded-3xl shadow-lg relative overflow-hidden">
                 <div class="max-w-2xl space-y-3 relative z-10">
                     <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/10 text-white border border-white/20 text-xs font-semibold">
-                        <i class="fa-solid fa-shield-halved"></i> Layanan Resmi Resep Dokter
+                        <i class="fa-solid fa-shield-halved"></i> <span data-i18n="rx_badge">Layanan Resmi Resep Dokter</span>
                     </div>
-                    <h1 class="text-2xl sm:text-4xl font-extrabold">Unggah Resep & Pesan Obat Keras</h1>
-                    <p class="text-sm text-rose-100">
+                    <h1 class="text-2xl sm:text-4xl font-extrabold" data-i18n="rx_view_title">Unggah Resep & Pesan Obat Keras</h1>
+                    <p class="text-sm text-rose-100" data-i18n="rx_view_desc">
                         Sesuai peraturan kefarmasian, pembelian obat keras wajib melampirkan foto resep dokter asli yang sah. Unggah resep Anda di sini untuk diverifikasi dan disetujui oleh Apoteker kami.
                     </p>
                 </div>
@@ -283,38 +278,38 @@
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
                 <!-- Upload Form Box -->
                 <div class="lg:col-span-2 bg-white p-6 sm:p-8 rounded-3xl border border-slate-200 shadow-sm space-y-6">
-                    <h3 class="font-bold text-slate-800 text-base border-b border-slate-100 pb-3">Formulir Pesanan Resep Obat Keras</h3>
+                    <h3 class="font-bold text-slate-800 text-base border-b border-slate-100 pb-3" data-i18n="rx_form_title">Formulir Pesanan Resep Obat Keras</h3>
                     
                     <form id="rx-standalone-form" onsubmit="submitStandaloneRxOrder(event)" class="space-y-4">
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             <div>
-                                <label class="block text-xs font-bold text-slate-700 mb-1">Nama Pasien / Pemesan *</label>
+                                <label class="block text-xs font-bold text-slate-700 mb-1" data-i18n="rx_lbl_name">Nama Pasien / Pemesan *</label>
                                 <input type="text" id="rx-patient-name" required placeholder="Nama lengkap sesuai resep" class="w-full px-4 py-2.5 text-xs rounded-xl border border-slate-300">
                             </div>
                             <div>
-                                <label class="block text-xs font-bold text-slate-700 mb-1">Nomor WhatsApp Aktif *</label>
-                                <input type="tel" id="rx-patient-phone" required placeholder="081234567890" class="w-full px-4 py-2.5 text-xs rounded-xl border border-slate-300">
+                                <label class="block text-xs font-bold text-slate-700 mb-1" data-i18n="rx_lbl_phone">Nomor WhatsApp Aktif *</label>
+                                <input type="tel" id="rx-patient-phone" required placeholder="089607040011" class="w-full px-4 py-2.5 text-xs rounded-xl border border-slate-300">
                             </div>
                         </div>
 
                         <div>
-                            <label class="block text-xs font-bold text-slate-700 mb-1">Catatan Obat / Permintaan Resep Dokter *</label>
-                            <textarea id="rx-patient-notes" required rows="3" placeholder="Sebutkan nama obat keras sesuai resep dokter beserta dosisnya (contoh: Amoxicillin 500mg 3x1, Diazepam 2mg)..." class="w-full px-4 py-2.5 text-xs rounded-xl border border-slate-300"></textarea>
+                            <label class="block text-xs font-bold text-slate-700 mb-1" data-i18n="rx_lbl_notes">Catatan Obat / Permintaan Resep Dokter *</label>
+                            <textarea id="rx-patient-notes" required rows="3" placeholder="Sebutkan nama obat keras sesuai resep dokter beserta dosisnya..." class="w-full px-4 py-2.5 text-xs rounded-xl border border-slate-300"></textarea>
                         </div>
 
                         <div class="space-y-2">
-                            <label class="block text-xs font-bold text-slate-700">Unggah Foto Resep Dokter (Wajib) *</label>
+                            <label class="block text-xs font-bold text-slate-700" data-i18n="rx_lbl_file">Unggah Foto Resep Dokter (Wajib) *</label>
                             <input type="file" id="rx-standalone-file" required accept="image/*" class="w-full text-xs text-slate-500 file:mr-4 file:py-2.5 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-bold file:bg-rose-600 file:text-white hover:file:bg-rose-700 cursor-pointer">
-                            <p class="text-[11px] text-slate-400">Format gambar (JPG, PNG). Pastikan foto resep jelas dan mencantumkan stempel/nama dokter.</p>
+                            <p class="text-[11px] text-slate-400" data-i18n="rx_file_note">Format gambar (JPG, PNG). Pastikan foto resep jelas dan mencantumkan stempel/nama dokter.</p>
                         </div>
 
                         <div>
-                            <label class="block text-xs font-bold text-slate-700 mb-1">Alamat Pengiriman Lengkap *</label>
+                            <label class="block text-xs font-bold text-slate-700 mb-1" data-i18n="rx_lbl_address">Alamat Pengiriman Lengkap *</label>
                             <textarea id="rx-patient-address" required rows="2" placeholder="Nama jalan, nomor rumah, RT/RW, kelurahan, kecamatan..." class="w-full px-4 py-2.5 text-xs rounded-xl border border-slate-300"></textarea>
                         </div>
 
                         <button type="submit" class="w-full py-4 bg-rose-600 hover:bg-rose-700 text-white font-bold text-xs rounded-xl shadow-md transition-all flex items-center justify-center gap-2">
-                            <i class="fa-solid fa-paper-plane"></i> Kirim Resep untuk Diverifikasi Apoteker Web
+                            <i class="fa-solid fa-paper-plane"></i> <span data-i18n="rx_btn_submit">Kirim Resep untuk Diverifikasi Apoteker Web</span>
                         </button>
                     </form>
                 </div>
@@ -327,21 +322,21 @@
                                 <i class="fa-brands fa-whatsapp"></i>
                             </div>
                             <div>
-                                <h4 class="font-bold text-emerald-900 text-sm">Konsultasi Resep via WhatsApp</h4>
-                                <p class="text-xs text-emerald-700">Terhubung langsung ke apoteker tanpa mengetik nomor.</p>
+                                <h4 class="font-bold text-emerald-900 text-sm" data-i18n="rx_wa_title">Konsultasi Resep via WhatsApp</h4>
+                                <p class="text-xs text-emerald-700" data-i18n="rx_wa_desc">Terhubung langsung ke apoteker tanpa mengetik nomor.</p>
                             </div>
                         </div>
                         <button onclick="openDirectWhatsApp('Halo Apotek Sefizlumia, saya ingin konsultasi dan mengirim foto resep dokter untuk obat keras.')" class="w-full py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs rounded-xl shadow-md flex items-center justify-center gap-2">
-                            <i class="fa-brands fa-whatsapp text-base"></i> Hubungi WhatsApp Sekarang
+                            <i class="fa-brands fa-whatsapp text-base"></i> <span data-i18n="rx_wa_btn">Hubungi WhatsApp Sekarang</span>
                         </button>
                     </div>
 
                     <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm space-y-3">
-                        <h4 class="font-bold text-slate-800 text-sm"><i class="fa-solid fa-circle-info text-sage-600 mr-1"></i> Alur Verifikasi Resep</h4>
+                        <h4 class="font-bold text-slate-800 text-sm"><i class="fa-solid fa-circle-info text-sage-600 mr-1"></i> <span data-i18n="rx_flow_title">Alur Verifikasi Resep</span></h4>
                         <ol class="text-xs text-slate-600 space-y-2 list-decimal list-inside">
-                            <li>Unggah foto resep asli & isi data pesanan.</li>
-                            <li>Apoteker memeriksa keabsahan resep di panel web.</li>
-                            <li>Setelah disetujui, pesanan dikemas & dikirim ke alamat Anda.</li>
+                            <li data-i18n="rx_flow_1">Unggah foto resep asli & isi data pesanan.</li>
+                            <li data-i18n="rx_flow_2">Apoteker memeriksa keabsahan resep di panel web.</li>
+                            <li data-i18n="rx_flow_3">Setelah disetujui, pesanan dikemas & dikirim ke alamat Anda.</li>
                         </ol>
                     </div>
                 </div>
@@ -353,7 +348,7 @@
             <div class="bg-gradient-to-r from-sage-800 to-sage-700 text-white p-8 sm:p-10 rounded-3xl shadow-lg relative overflow-hidden">
                 <div class="max-w-2xl space-y-3 relative z-10">
                     <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-emerald-400/20 text-emerald-300 border border-emerald-400/30 text-xs font-semibold">
-                        <i class="fa-solid fa-clock"></i> <span id="consult-status-badge">Jam Operasional: 08.00 - 21.00 WIB (Buka)</span>
+                        <i class="fa-solid fa-clock"></i> <span id="consult-status-badge" data-i18n="consult_badge">Jam Operasional: 08.00 - 21.00 WIB (Buka)</span>
                     </div>
                     <h1 class="text-2xl sm:text-4xl font-extrabold" data-i18n="consult_title">Konsultasi Apoteker Langsung</h1>
                     <p class="text-sm text-sage-100" data-i18n="consult_desc">
@@ -361,7 +356,7 @@
                     </p>
                     <div class="pt-2">
                         <button onclick="openDirectWhatsApp('Halo Apotek Sefizlumia, saya ingin berkonsultasi langsung dengan apoteker terkait keluhan kesehatan saya.')" class="px-6 py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs rounded-xl shadow-md inline-flex items-center gap-2">
-                            <i class="fa-brands fa-whatsapp text-base"></i> Buka Chat WhatsApp Langsung
+                            <i class="fa-brands fa-whatsapp text-base"></i> <span data-i18n="consult_wa_btn">Buka Chat WhatsApp Langsung</span>
                         </button>
                     </div>
                 </div>
@@ -390,7 +385,7 @@
                 <div id="chat-messages-scroll" class="p-6 h-80 overflow-y-auto space-y-4 bg-slate-50/50"></div>
 
                 <div class="p-4 bg-white border-t border-slate-200 flex items-center gap-3">
-                    <input type="text" id="chat-input-msg" onkeydown="if(event.key==='Enter') sendChatMessage()" placeholder="Ketik keluhan kesehatan Anda (contoh: demam ringan, batuk, pusing)..." class="flex-1 px-4 py-3 rounded-xl border border-slate-300 text-xs focus:outline-none focus:border-sage-500">
+                    <input type="text" id="chat-input-msg" onkeydown="if(event.key==='Enter') sendChatMessage()" placeholder="Ketik keluhan kesehatan Anda..." class="flex-1 px-4 py-3 rounded-xl border border-slate-300 text-xs focus:outline-none focus:border-sage-500">
                     <button onclick="sendChatMessage()" class="px-6 py-3 bg-sage-600 hover:bg-sage-700 text-white font-bold text-xs rounded-xl shadow-md transition-all flex items-center gap-2">
                         <i class="fa-solid fa-paper-plane"></i> <span data-i18n="btn_send">Kirim</span>
                     </button>
@@ -406,7 +401,7 @@
                     <p class="text-xs text-slate-500 mt-1" data-i18n="cart_sub">Jika keranjang Anda berisi obat keras, Anda wajib mengunggah foto resep dokter dan menunggu persetujuan web sebelum pesanan dikirim.</p>
                 </div>
                 <button onclick="openDirectWhatsApp('Halo Apotek Sefizlumia, saya ingin konfirmasi pesanan belanjaan di keranjang saya.')" class="px-4 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold flex items-center gap-2">
-                    <i class="fa-brands fa-whatsapp"></i> Chat WhatsApp Konfirmasi Keranjang
+                    <i class="fa-brands fa-whatsapp"></i> <span data-i18n="cart_wa_btn">Chat WhatsApp Konfirmasi Keranjang</span>
                 </button>
             </div>
 
@@ -415,7 +410,7 @@
                     <i class="fa-solid fa-cart-arrow-down"></i>
                 </div>
                 <h3 class="text-lg font-bold text-slate-800" data-i18n="cart_empty">Keranjang Belanja Kosong</h3>
-                <button onclick="navigateTo('catalog')" class="px-6 py-2.5 bg-sage-600 text-white text-xs font-bold rounded-xl hover:bg-sage-700">
+                <button onclick="navigateTo('catalog')" class="px-6 py-2.5 bg-sage-600 text-white text-xs font-bold rounded-xl hover:bg-sage-700" data-i18n="cart_browse_btn">
                     Jelajahi Katalog
                 </button>
             </div>
@@ -469,7 +464,7 @@
                             </div>
                             <div>
                                 <label class="block text-[11px] font-bold text-slate-700" data-i18n="lbl_phone">Nomor WhatsApp *</label>
-                                <input type="tel" id="checkout-phone" required placeholder="081234567890" class="w-full px-3 py-2 text-xs rounded-lg border border-slate-300">
+                                <input type="tel" id="checkout-phone" required placeholder="089607040011" class="w-full px-3 py-2 text-xs rounded-lg border border-slate-300">
                             </div>
                             <div>
                                 <label class="block text-[11px] font-bold text-slate-700" data-i18n="lbl_address">Alamat Pengiriman *</label>
@@ -494,7 +489,7 @@
                 </div>
                 <div class="flex items-center gap-2">
                     <button onclick="openDirectWhatsApp('Halo Apotek Sefizlumia, saya ingin menanyakan status pesanan saya.')" class="px-3 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold flex items-center gap-1.5">
-                        <i class="fa-brands fa-whatsapp"></i> Tanya Status via WhatsApp
+                        <i class="fa-brands fa-whatsapp"></i> <span data-i18n="ord_wa_btn">Tanya Status via WhatsApp</span>
                     </button>
                     <button onclick="renderUserOrders()" class="px-3 py-2 bg-slate-100 hover:bg-slate-200 rounded-xl text-xs font-semibold text-slate-600">
                         <i class="fa-solid fa-rotate-right mr-1"></i> <span data-i18n="btn_refresh">Perbarui</span>
@@ -503,21 +498,6 @@
             </div>
 
             <div id="user-orders-list" class="space-y-4"></div>
-        </section>
-
-        <!-- VIEW 6: ABOUT -->
-        <section id="view-about" class="view-section hidden space-y-8">
-            <div class="bg-white p-8 sm:p-12 rounded-3xl border border-slate-200 shadow-sm space-y-6">
-                <div class="max-w-3xl space-y-4">
-                    <div class="w-14 h-14 rounded-2xl bg-sage-600 text-white flex items-center justify-center text-3xl shadow-md">
-                        <i class="fa-solid fa-hospital"></i>
-                    </div>
-                    <h1 class="text-3xl font-extrabold text-slate-800">Apotek Sefizlumia Digital</h1>
-                    <p class="text-slate-600 text-sm leading-relaxed">
-                        Mitra Kesehatan Terpercaya Anda untuk Keluarga. Menyediakan layanan konsultasi apoteker berlisensi, katalog obat terverifikasi, pilihan pesanan resep obat keras, serta integrasi WhatsApp langsung tanpa repot mengetik nomor.
-                    </p>
-                </div>
-            </div>
         </section>
 
     </main>
@@ -562,18 +542,18 @@
             </button>
             <div class="flex items-center justify-between border-b border-slate-100 pb-4">
                 <div>
-                    <h3 class="text-xl font-extrabold text-slate-800">Panel Web Apoteker Sefizlumia: Persetujuan Resep & Keluhan Pasien</h3>
-                    <p class="text-xs text-slate-500">Validasi resep obat keras yang diunggah pasien & pantau konsultasi keluhan secara real-time</p>
+                    <h3 class="text-xl font-extrabold text-slate-800" data-i18n="dash_title">Panel Web Apoteker Sefizlumia: Persetujuan Resep & Keluhan Pasien</h3>
+                    <p class="text-xs text-slate-500" data-i18n="dash_sub">Validasi resep obat keras yang diunggah pasien & pantau konsultasi keluhan secara real-time</p>
                 </div>
-                <button onclick="logoutPharmacist()" class="px-3 py-1.5 bg-rose-50 text-rose-600 rounded-xl text-xs font-bold">Keluar</button>
+                <button onclick="logoutPharmacist()" class="px-3 py-1.5 bg-rose-50 text-rose-600 rounded-xl text-xs font-bold" data-i18n="dash_logout">Keluar</button>
             </div>
             <div class="space-y-6">
                 <div>
-                    <h4 class="font-bold text-slate-800 text-sm mb-3">Daftar Antrean Resep Obat Keras Masuk (Perlu Persetujuan Web)</h4>
+                    <h4 class="font-bold text-slate-800 text-sm mb-3" data-i18n="dash_queue_title">Daftar Antrean Resep Obat Keras Masuk (Perlu Persetujuan Web)</h4>
                     <div id="pharmacist-prescription-queue" class="space-y-3"></div>
                 </div>
                 <div class="border-t border-slate-100 pt-4">
-                    <h4 class="font-bold text-slate-800 text-sm mb-3">Daftar Keluhan Pasien & Konsultasi Obat</h4>
+                    <h4 class="font-bold text-slate-800 text-sm mb-3" data-i18n="dash_complaints_title">Daftar Keluhan Pasien & Konsultasi Obat</h4>
                     <div id="pharmacist-complaints-list" class="space-y-3"></div>
                 </div>
             </div>
@@ -593,11 +573,11 @@
             </div>
             <div>
                 <h4 class="font-bold text-white text-sm mb-3" data-i18n="footer_op">Jam Operasional</h4>
-                <p>Senin - Minggu: 08.00 - 21.00 WIB</p>
+                <p data-i18n="footer_op_val">Senin - Minggu: 08.00 - 21.00 WIB</p>
             </div>
             <div>
                 <h4 class="font-bold text-white text-sm mb-3" data-i18n="footer_contact">Kontak Resmi WhatsApp</h4>
-                <p><button onclick="openDirectWhatsApp('Halo Apotek Sefizlumia, saya ingin terhubung dengan layanan apotek.')" class="text-emerald-400 hover:underline font-bold inline-flex items-center gap-1"><i class="fa-brands fa-whatsapp"></i> +62 812-3456-7890 (Klik Langsung)</button></p>
+                <p><button onclick="openDirectWhatsApp('Halo Apotek Sefizlumia, saya ingin terhubung dengan layanan apotek.')" class="text-emerald-400 hover:underline font-bold inline-flex items-center gap-1"><i class="fa-brands fa-whatsapp"></i> +62 896-0704-0011 (Klik Langsung)</button></p>
             </div>
         </div>
         <div class="border-t border-slate-800 py-6 text-center text-slate-500">
@@ -612,23 +592,25 @@
                 nav_home: "Beranda",
                 nav_catalog: "Katalog Obat",
                 nav_consult: "Konsultasi Apoteker",
-                nav_about: "Tentang Kami",
                 nav_orders: "Pesanan & Resep",
+                nav_rx: "Unggah Resep Obat Keras",
                 pharmacist_portal: "Apoteker Masuk",
+                btn_wa_direct: "WhatsApp Langsung",
+                home_title: "Apotek Sefizlumia Digital",
+                home_subtitle: "Sahabat Kesehatan Anda • Konsultasi, Resep Obat Keras & WhatsApp Langsung",
+                home_hours: "Buka: Senin - Minggu | 08.00 - 21.00 WIB",
                 btn_catalog: "Pilih Katalog Obat",
-                btn_consult: "Konsultasi Apoteker Langsung",
-                feat_1_title: "Apoteker Profesional",
-                feat_1_desc: "Dilayani langsung oleh apoteker berlisensi SIPA secara real-time untuk konsultasi obat ringan & bebas.",
-                feat_2_title: "Resep Obat Keras Aman",
-                feat_2_desc: "Wajib mengunggah foto resep dokter dan harus disetujui melalui sistem web apotek sebelum pengiriman.",
-                feat_3_title: "Ongkir Subsidi Murah",
-                feat_3_desc: "Pilihan kurir pengiriman cepat langsung ke rumah Anda.",
+                btn_upload_rx: "Unggah Resep Obat Keras",
+                btn_wa_connect: "WhatsApp Terhubung Langsung",
+                feat_1_h: "WhatsApp Terhubung Langsung",
+                feat_1_p: "Terhubung langsung ke apoteker tanpa perlu mengetik nomor terlebih dahulu, pesan otomatis tersusun rapi.",
+                feat_2_h: "Pilihan Pesanan Resep Obat Keras",
+                feat_2_p: "Khusus obat keras, pasien wajib mengunggah foto resep dokter untuk diverifikasi dan disetujui apoteker di sistem.",
+                feat_3_h: "Apoteker Profesional",
+                feat_3_p: "Dilayani langsung oleh apoteker berlisensi SIPA secara real-time untuk konsultasi obat ringan & bebas.",
                 cat_title: "Katalog Produk & Obat Lengkap",
                 cat_subtitle: "Pilih produk obat bebas, vitamin, atau obat keras (wajib resep dokter)",
-                sort_label: "Urutkan:",
-                sort_rec: "Rekomendasi",
-                sort_low: "Harga: Rendah &rarr; Tinggi",
-                sort_high: "Harga: Tinggi &rarr; Rendah",
+                cat_rx_btn: "Khusus Pesan Resep Obat Keras",
                 filter_title: "Filter Katalog",
                 filter_reset: "Reset",
                 filter_search: "Pencarian",
@@ -637,12 +619,34 @@
                 gol_limited: "Obat Bebas Terbatas",
                 gol_rx: "Obat Keras (Wajib Resep)",
                 empty_prod: "Produk Tidak Ditemukan",
+                rx_badge: "Layanan Resmi Resep Dokter",
+                rx_view_title: "Unggah Resep & Pesan Obat Keras",
+                rx_view_desc: "Sesuai peraturan kefarmasian, pembelian obat keras wajib melampirkan foto resep dokter asli yang sah. Unggah resep Anda di sini untuk diverifikasi dan disetujui oleh Apoteker kami.",
+                rx_form_title: "Formulir Pesanan Resep Obat Keras",
+                rx_lbl_name: "Nama Pasien / Pemesan *",
+                rx_lbl_phone: "Nomor WhatsApp Aktif *",
+                rx_lbl_notes: "Catatan Obat / Permintaan Resep Dokter *",
+                rx_lbl_file: "Unggah Foto Resep Dokter (Wajib) *",
+                rx_file_note: "Format gambar (JPG, PNG). Pastikan foto resep jelas dan mencantumkan stempel/nama dokter.",
+                rx_lbl_address: "Alamat Pengiriman Lengkap *",
+                rx_btn_submit: "Kirim Resep untuk Diverifikasi Apoteker Web",
+                rx_wa_title: "Konsultasi Resep via WhatsApp",
+                rx_wa_desc: "Terhubung langsung ke apoteker tanpa mengetik nomor.",
+                rx_wa_btn: "Hubungi WhatsApp Sekarang",
+                rx_flow_title: "Alur Verifikasi Resep",
+                rx_flow_1: "Unggah foto resep asli & isi data pesanan.",
+                rx_flow_2: "Apoteker memeriksa keabsahan resep di panel web.",
+                rx_flow_3: "Setelah disetujui, pesanan dikemas & dikirim ke alamat Anda.",
+                consult_badge: "Jam Operasional: 08.00 - 21.00 WIB (Buka)",
                 consult_title: "Konsultasi Apoteker Langsung",
-                consult_desc: "Diskusikan keluhan kesehatan ringan Anda bersama apoteker profesional kami. Dapatkan rekomendasi obat bebas yang tepat atau arahan penggunaan obat yang aman.",
+                consult_desc: "Diskusikan keluhan kesehatan ringan Anda bersama apoteker profesional kami. Anda juga dapat terhubung langsung via WhatsApp tanpa perlu mengetik nomor terlebih dahulu.",
+                consult_wa_btn: "Buka Chat WhatsApp Langsung",
                 btn_send: "Kirim",
                 cart_title: "Keranjang Belanja & Unggah Resep Dokter",
                 cart_sub: "Jika keranjang Anda berisi obat keras, Anda wajib mengunggah foto resep dokter dan menunggu persetujuan web sebelum pesanan dikirim.",
+                cart_wa_btn: "Chat WhatsApp Konfirmasi Keranjang",
                 cart_empty: "Keranjang Belanja Kosong",
+                cart_browse_btn: "Jelajahi Katalog",
                 cart_items: "Item Pesanan",
                 rx_required_title: "Unggah Resep Dokter Wajib",
                 rx_required_desc: "Keranjang Anda berisi obat keras. Unggah foto resep dokter untuk diverifikasi dan disetujui melalui sistem web apotek sebelum pesanan dapat diproses kirim.",
@@ -656,36 +660,45 @@
                 btn_checkout: "Proses Pesanan & Validasi Resep",
                 ord_title: "Riwayat Pesanan & Status Resep",
                 ord_sub: "Pantau persetujuan resep oleh apoteker di sistem web dan status pengiriman kurir",
+                ord_wa_btn: "Tanya Status via WhatsApp",
                 btn_refresh: "Perbarui",
                 ph_login_title: "Verifikasi Kode Resmi Apoteker",
                 ph_login_desc: "Akses ini hanya untuk apoteker berlisensi. Masukkan kode resmi untuk masuk dan menyetujui resep pasien.",
                 btn_login_ph: "Masuk ke Panel Validasi Web Apoteker",
+                dash_title: "Panel Web Apoteker Sefizlumia: Persetujuan Resep & Keluhan Pasien",
+                dash_sub: "Validasi resep obat keras yang diunggah pasien & pantau konsultasi keluhan secara real-time",
+                dash_logout: "Keluar",
+                dash_queue_title: "Daftar Antrean Resep Obat Keras Masuk (Perlu Persetujuan Web)",
+                dash_complaints_title: "Daftar Keluhan Pasien & Konsultasi Obat",
                 footer_desc: "Sahabat Kesehatan Anda untuk Keluarga.",
                 footer_op: "Jam Operasional",
-                footer_contact: "Kontak Resmi"
+                footer_op_val: "Senin - Minggu: 08.00 - 21.00 WIB",
+                footer_contact: "Kontak Resmi WhatsApp"
             },
             en: {
                 sub_brand: "Your Health Companion",
                 nav_home: "Home",
                 nav_catalog: "Drug Catalog",
                 nav_consult: "Pharmacist Consultation",
-                nav_about: "About Us",
                 nav_orders: "Orders & Prescription",
+                nav_rx: "Upload Prescription",
                 pharmacist_portal: "Pharmacist Login",
+                btn_wa_direct: "Direct WhatsApp",
+                home_title: "Sefizlumia Digital Pharmacy",
+                home_subtitle: "Your Health Companion • Consultation, Prescription Drugs & Direct WhatsApp",
+                home_hours: "Open: Monday - Sunday | 08:00 - 21:00 WIB",
                 btn_catalog: "Browse Drug Catalog",
-                btn_consult: "Consult Pharmacist Directly",
-                feat_1_title: "Professional Pharmacists",
-                feat_1_desc: "Assisted directly by licensed SIPA pharmacists in real-time.",
-                feat_2_title: "Secure Prescription Drugs",
-                feat_2_desc: "Prescription upload is required and must be approved via web system before shipping.",
-                feat_3_title: "Affordable Delivery",
-                feat_3_desc: "Instant courier options with special discounted shipping rates.",
-                cat_title: "Product & Complete Drug Catalog",
-                cat_subtitle: "Choose OTC drugs, vitamins, or prescription-only medicines",
-                sort_label: "Sort By:",
-                sort_rec: "Recommended",
-                sort_low: "Price: Low &rarr; High",
-                sort_high: "Price: High &rarr; Low",
+                btn_upload_rx: "Upload Prescription Drug",
+                btn_wa_connect: "Direct WhatsApp Connect",
+                feat_1_h: "Direct WhatsApp Connection",
+                feat_1_p: "Connect directly to the pharmacist without typing numbers manually; messages are pre-formatted.",
+                feat_2_h: "Prescription Order Options",
+                feat_2_p: "For prescription drugs, patients must upload a prescription photo to be verified and approved by the pharmacist.",
+                feat_3_h: "Professional Pharmacists",
+                feat_3_p: "Assisted directly by licensed SIPA pharmacists in real-time for mild and OTC medication consultation.",
+                cat_title: "Complete Product & Drug Catalog",
+                cat_subtitle: "Choose over-the-counter drugs, vitamins, or prescription-only medicines",
+                cat_rx_btn: "Prescription Order Only",
                 filter_title: "Catalog Filters",
                 filter_reset: "Reset",
                 filter_search: "Search",
@@ -694,55 +707,86 @@
                 gol_limited: "Limited OTC",
                 gol_rx: "Prescription Drug",
                 empty_prod: "Product Not Found",
+                rx_badge: "Official Doctor Prescription Service",
+                rx_view_title: "Upload Prescription & Order Drugs",
+                rx_view_desc: "In accordance with pharmaceutical regulations, purchasing prescription drugs requires attaching a valid original doctor prescription photo.",
+                rx_form_title: "Prescription Drug Order Form",
+                rx_lbl_name: "Patient / Buyer Name *",
+                rx_lbl_phone: "Active WhatsApp Number *",
+                rx_lbl_notes: "Medication Notes / Doctor Prescription Request *",
+                rx_lbl_file: "Upload Doctor Prescription Photo (Mandatory) *",
+                rx_file_note: "Image format (JPG, PNG). Ensure the photo is clear with doctor stamp/name.",
+                rx_lbl_address: "Complete Shipping Address *",
+                rx_btn_submit: "Submit Prescription for Web Pharmacist Verification",
+                rx_wa_title: "Prescription Consultation via WhatsApp",
+                rx_wa_desc: "Connect directly to the pharmacist without typing numbers.",
+                rx_wa_btn: "Contact WhatsApp Now",
+                rx_flow_title: "Prescription Verification Flow",
+                rx_flow_1: "Upload original prescription photo & fill order details.",
+                rx_flow_2: "Pharmacist reviews prescription validity on the web panel.",
+                rx_flow_3: "Once approved, the order is packed & shipped to your address.",
+                consult_badge: "Operational Hours: 08:00 - 21:00 WIB (Open)",
                 consult_title: "Live Pharmacist Consultation",
-                consult_desc: "Discuss your mild health concerns with our professional pharmacists to receive proper OTC drug recommendations.",
+                consult_desc: "Discuss your mild health concerns with our professional pharmacists. You can also connect directly via WhatsApp.",
+                consult_wa_btn: "Open Direct WhatsApp Chat",
                 btn_send: "Send",
                 cart_title: "Shopping Cart & Prescription Upload",
-                cart_sub: "Prescription drugs require doctor prescription upload and web approval before shipping.",
+                cart_sub: "If your cart contains prescription drugs, uploading a doctor prescription and web approval are mandatory before shipping.",
+                cart_wa_btn: "WhatsApp Cart Confirmation",
                 cart_empty: "Shopping Cart is Empty",
+                cart_browse_btn: "Explore Catalog",
                 cart_items: "Order Items",
                 rx_required_title: "Doctor Prescription Required",
-                rx_required_desc: "Your cart contains prescription drugs. Upload prescription photo to be verified and approved through the web system.",
+                rx_required_desc: "Your cart contains prescription drugs. Upload prescription photo to be verified and approved via web system.",
                 summary_title: "Summary & Shipping",
                 subtotal: "Product Subtotal",
-                shipping: "Shipping Cost",
+                shipping: "Shipping Cost (Economy)",
                 grand_total: "Grand Total",
                 lbl_name: "Recipient Name *",
                 lbl_phone: "WhatsApp Number *",
                 lbl_address: "Shipping Address *",
                 btn_checkout: "Process Order & Validate Prescription",
                 ord_title: "Order History & Prescription Status",
-                ord_sub: "Monitor prescription web approvals and courier shipping status",
+                ord_sub: "Monitor prescription web approvals by pharmacists and courier shipping status",
+                ord_wa_btn: "Ask Status via WhatsApp",
                 btn_refresh: "Refresh",
                 ph_login_title: "Official Pharmacist Code Verification",
-                ph_login_desc: "Restricted access. Enter your official pharmacist code.",
-                btn_login_ph: "Enter Web Pharmacist Panel",
+                ph_login_desc: "Restricted access for licensed pharmacists only. Enter the official code.",
+                btn_login_ph: "Enter Web Pharmacist Validation Panel",
+                dash_title: "Sefizlumia Web Pharmacist Panel: Prescription Approvals & Patient Complaints",
+                dash_sub: "Validate patient-uploaded prescription drugs & monitor consultations in real-time",
+                dash_logout: "Logout",
+                dash_queue_title: "Incoming Prescription Queue (Web Approval Needed)",
+                dash_complaints_title: "Patient Complaints & Drug Consultation List",
                 footer_desc: "Your Health Companion for Family.",
                 footer_op: "Operational Hours",
-                footer_contact: "Official Contact"
+                footer_op_val: "Monday - Sunday: 08:00 - 21:00 WIB",
+                footer_contact: "Official WhatsApp Contact"
             },
             su: {
                 sub_brand: "Sahabat Kaséhatan Anjeun",
                 nav_home: "Beranda",
                 nav_catalog: "Katalog Obat",
                 nav_consult: "Konsultasi Apoték",
-                nav_about: "Ngeunaan Kami",
                 nav_orders: "Pesenan & Resep",
+                nav_rx: "Unggah Resep Obat",
                 pharmacist_portal: "Apoték Lebet",
+                btn_wa_direct: "WhatsApp Langsung",
+                home_title: "Apoték Sefizlumia Digital",
+                home_subtitle: "Sahabat Kaséhatan Anjeun • Konsultasi, Resep Obat Keras & WhatsApp Langsung",
+                home_hours: "Buka: Senén - Minggu | 08.00 - 21.00 WIB",
                 btn_catalog: "Pilih Katalog Obat",
-                btn_consult: "Konsultasi Apoték Langsung",
-                feat_1_title: "Apoték Profésional",
-                feat_1_desc: "Dilayanan langsung ku apoték berlisénsi SIPA sacara real-time.",
-                feat_2_title: "Resep Obat Keras Aman",
-                feat_2_desc: "Wajib unggah poto resep dokter sareng disatujuan sateuacan dikirim.",
-                feat_3_title: "Ongkir Murah",
-                feat_3_desc: "Pilihan kurir instan kalayan potongan harga husus.",
+                btn_upload_rx: "Unggah Resep Obat Keras",
+                btn_wa_connect: "WhatsApp Nyambung Langsung",
+                feat_1_h: "WhatsApp Nyambung Langsung",
+                feat_1_p: "Nyambung langsung ka apoték tanpa kedah ngetik nomer heula, pesen otomatis disusun rapih.",
+                feat_2_h: "Pilihan Pesenan Resep Obat Keras",
+                feat_2_p: "Husus obat keras, pasién wajib unggah poto resep dokter kanggo diverifikasi sareng disetujui apoték.",
+                feat_3_h: "Apoték Profésional",
+                feat_3_p: "Dilayanan langsung ku apoték berlisénsi SIPA sacara real-time kanggo konsultasi obat ringan.",
                 cat_title: "Katalog Produk & Obat Lengkap",
-                cat_subtitle: "Pilih produk obat bébas, vitamin, atanapi obat keras",
-                sort_label: "Urutkeun:",
-                sort_rec: "Rekomendasi",
-                sort_low: "Harga: Rendah &rarr; Tinggi",
-                sort_high: "Harga: Tinggi &rarr; Rendah",
+                cat_subtitle: "Pilih produk obat bébas, vitamin, atanapi obat keras (wajib resep dokter)",
+                cat_rx_btn: "Husus Pesen Resep Obat Keras",
                 filter_title: "Saring Katalog",
                 filter_reset: "Reset",
                 filter_search: "Pamilarian",
@@ -751,32 +795,61 @@
                 gol_limited: "Obat Bebas Terbatas",
                 gol_rx: "Obat Keras (Wajib Resep)",
                 empty_prod: "Produk Henteu Kapanggih",
+                rx_badge: "Layanan Resmi Resep Dokter",
+                rx_view_title: "Unggah Resep & Pesen Obat Keras",
+                rx_view_desc: "Sesuai peraturan kefarmasian, pameseran obat keras wajib ngalampirkeun poto resep dokter asli anu sah.",
+                rx_form_title: "Formulir Pesenan Resep Obat Keras",
+                rx_lbl_name: "Nami Pasién / Pamesan *",
+                rx_lbl_phone: "Nomer WhatsApp Aktif *",
+                rx_lbl_notes: "Catetan Obat / Panuhun Resep Dokter *",
+                rx_lbl_file: "Unggah Poto Resep Dokter (Wajib) *",
+                rx_file_note: "Format gambar (JPG, PNG). Pastikeun poto resep jelas tur aya stempel/nami dokter.",
+                rx_lbl_address: "Alamat Pangiriman Lengkap *",
+                rx_btn_submit: "Kirim Resep Kanggo Diverifikasi Apoték Web",
+                rx_wa_title: "Konsultasi Resep via WhatsApp",
+                rx_wa_desc: "Nyambung langsung ka apoték tanpa ngetik nomer.",
+                rx_wa_btn: "Taroskeun WhatsApp Ayeuna",
+                rx_flow_title: "Alur Verifikasi Resep",
+                rx_flow_1: "Unggah poto resep asli & eusian data pesenan.",
+                rx_flow_2: "Apoték mariksa kasahihan resep dina panel web.",
+                rx_flow_3: "Saatos disetujui, pesenan dikemas & dikirim ka alamat anjeun.",
+                consult_badge: "Jam Operasional: 08.00 - 21.00 WIB (Buka)",
                 consult_title: "Konsultasi Apoték Langsung",
-                consult_desc: "Diskusikeun keluhan kaséhatan ringan anjeun sareng apoték kami kanggo kéngingkeun rekomendasi obat bébas anu pas.",
+                consult_desc: "Diskusikeun keluhan kaséhatan ringan anjeun sareng apoték profésional kami. Anjeun ogé tiasa nyambung via WhatsApp.",
+                consult_wa_btn: "Buka Chat WhatsApp Langsung",
                 btn_send: "Kirim",
                 cart_title: "Karanjang Balanja & Unggah Resep Dokter",
-                cart_sub: "Obat keras meryogikeun lampiran resep dokter sareng persetujuan web sateuacan dikirim.",
+                cart_sub: "Upami karanjang anjeun ngandung obat keras, anjeun wajib unggah poto resep dokter sareng ngantosan persetujuan web sateuacan dikirim.",
+                cart_wa_btn: "Chat WhatsApp Konfirmasi Karanjang",
                 cart_empty: "Karanjang Balanja Kosong",
+                cart_browse_btn: "Jajah Katalog",
                 cart_items: "Item Pesenan",
                 rx_required_title: "Unggah Resep Dokter Wajib",
-                rx_required_desc: "Karanjang anjeun ngandung obat keras. Unggah poto resep dokter kanggo diverifikasi sareng disetujui dina sistem web apoték.",
+                rx_required_desc: "Karanjang anjeun ngandung obat keras. Unggah poto resep dokter kanggo diverifikasi sareng disetujui ngaliwatan sistem web apoték.",
                 summary_title: "Ringkesan & Pangiriman",
                 subtotal: "Subtotal Produk",
-                shipping: "Tarif Pangiriman",
+                shipping: "Tarif Pangiriman (Hemat)",
                 grand_total: "Total Tagihan",
                 lbl_name: "Nami Panampi *",
                 lbl_phone: "Nomer WhatsApp *",
                 lbl_address: "Alamat Pangiriman *",
                 btn_checkout: "Proses Pesenan & Validasi Resep",
                 ord_title: "Riwayat Pesenan & Status Resep",
-                ord_sub: "Pantau persetujuan resep web sareng status pangiriman",
+                ord_sub: "Pantau persetujuan resep ku apoték dina sistem web sareng status pangiriman",
+                ord_wa_btn: "Taroskeun Status via WhatsApp",
                 btn_refresh: "Anyarkeun",
                 ph_login_title: "Verifikasi Kode Resmi Apoték",
                 ph_login_desc: "Akses ieu khusus apoték berlisénsi. Lebetkeun kode resmi.",
-                btn_login_ph: "Lebetkeun Panel Web Apoték",
+                btn_login_ph: "Lebetkeun Panel Validasi Web Apoték",
+                dash_title: "Panel Web Apoték Sefizlumia: Persetujuan Resep & Keluhan Pasién",
+                dash_sub: "Validasi resep obat keras anu diunggah pasién & pantau konsultasi keluhan sacara real-time",
+                dash_logout: "Kaluar",
+                dash_queue_title: "Daptar Antrean Resep Obat Keras Lebet (Perlu Persetujuan Web)",
+                dash_complaints_title: "Daptar Keluhan Pasién & Konsultasi Obat",
                 footer_desc: "Sahabat Kaséhatan Anjeun pikeun Kulawarga.",
                 footer_op: "Jam Operasional",
-                footer_contact: "Kontak Resmi"
+                footer_op_val: "Senén - Minggu: 08.00 - 21.00 WIB",
+                footer_contact: "Kontak Resmi WhatsApp"
             }
         };
 
@@ -789,7 +862,7 @@
                     id: 'ORD-90214',
                     date: '09 Okt, 14:30 WIB',
                     name: 'Ibu Siti Aminah',
-                    phone: '081298765432',
+                    phone: '6289607040011',
                     address: 'Jl. Raya Suranenggala No. 45, Cirebon',
                     items: [{ product: { name: 'Amoxicillin 500 mg (Antibiotik)', price: 24000, golongan: 'Obat Keras' }, quantity: 1 }],
                     total: 30000,
@@ -893,9 +966,8 @@
             switchLanguage('id');
         });
 
-        // Direct WhatsApp function that opens WhatsApp instantly with prefilled text (no number typing needed)
         function openDirectWhatsApp(customMessage) {
-            const phoneNumber = "6289607040011"; // Official Apotek WhatsApp number
+            const phoneNumber = "6289607040011";
             const encodedMessage = encodeURIComponent(customMessage || "Halo Apotek Sefizlumia, saya ingin berkonsultasi mengenai obat dan resep dokter.");
             const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
             window.open(whatsappUrl, '_blank');
@@ -914,7 +986,6 @@
             AppState.activeView = viewId;
             document.querySelectorAll('.view-section').forEach(el => el.classList.add('hidden'));
             
-            // Map rx-upload-view
             const targetId = viewId === 'rx-upload-view' ? 'view-rx-upload' : `view-${viewId}`;
             const target = document.getElementById(targetId);
             if (target) {
@@ -1282,7 +1353,6 @@
             `).join('');
         }
 
-        // Pharmacist Login & Web Approval Dashboard
         function openPharmacistLoginModal() {
             document.getElementById('pharmacist-login-modal').classList.remove('hidden');
         }
@@ -1342,7 +1412,7 @@
                     </div>
                     <div class="flex items-center gap-2">
                         <button onclick="openDirectWhatsApp('Halo ${o.name}, terkait pesanan resep obat keras #${o.id} di Apotek Sefizlumia...')" class="px-3 py-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs rounded-xl shadow-md">
-                            <i class="fa-brands fa-whatsapp"></i> Hubungi Pasien
+                            <i class="fa-brands fa-whatsapp"></i> Hubungi Pasién
                         </button>
                         ${o.status.includes('Menunggu') ? `
                             <button onclick="approvePrescription('${o.id}')" class="px-4 py-2 bg-rose-600 hover:bg-rose-700 text-white font-bold text-xs rounded-xl shadow-md">
