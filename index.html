@@ -149,7 +149,7 @@
                         Apotek Sefizlumia Digital
                     </h1>
                     <p class="text-lg sm:text-2xl text-sage-100 font-medium tracking-wide">
-                        "Sahabat Kesehatan Anda • Konsultasi & Layanan Resep Obat"
+                        "Sahabat Kesehatan Anda • Buka 24 Jam Setiap Hari, Konsultasi & Layanan Resep Obat"
                     </p>
                     <div class="inline-flex flex-wrap justify-center items-center gap-3">
                         <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/15 backdrop-blur-md border border-white/20 text-xs sm:text-sm font-bold text-emerald-300">
@@ -164,7 +164,7 @@
                         </button>
                         <button onclick="navigateTo('queue')" class="px-8 py-4 rounded-2xl bg-amber-500 hover:bg-amber-400 text-slate-900 font-bold text-sm shadow-lg transition-all hover:scale-105 flex items-center gap-2">
                             <i class="fa-solid fa-users-line"></i>
-                            <span>Ambil Nomor Antrean </span>
+                            <span>Ambil Nomor Antrean 24 Jam</span>
                         </button>
                         <button onclick="navigateTo('rx-upload-view')" class="px-8 py-4 rounded-2xl bg-rose-600 hover:bg-rose-500 text-white font-bold text-sm shadow-lg transition-all hover:scale-105 flex items-center gap-2">
                             <i class="fa-solid fa-file-medical"></i>
@@ -424,7 +424,7 @@
                 </div>
             </div>
 
-            <!-- Pharmacists List -->
+            <!-- Pharmacists List (Only 1 Pharmacist Displayed) -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6" id="pharmacist-selection-list"></div>
 
             <!-- Chat Box -->
@@ -700,11 +700,11 @@
                     </div>
                     <span class="text-xl font-extrabold text-white">Apotek Sefizlumia</span>
                 </div>
-                <p>Sahabat Kesehatan Anda • Buka 24 Jam Setiap Hari.</p>
+                <p>Sahabat Kesehatan Anda untuk Keluarga • Buka 24 Jam Setiap Hari.</p>
             </div>
             <div>
                 <h4 class="font-bold text-white text-sm mb-3">Jam Operasional</h4>
-                <p class="text-emerald-400 font-bold">Buka 24 Jam • Setiap Hari </p>
+                <p class="text-emerald-400 font-bold">Buka 24 Jam • Setiap Hari (Nonstop)</p>
             </div>
             <div>
                 <h4 class="font-bold text-white text-sm mb-3">Kontak Resmi WhatsApp</h4>
@@ -755,14 +755,14 @@
                 }
             ],
             isAdminAuthenticated: false,
+            // Jumlah apoteker disesuaikan menjadi tepat 1 orang apoteker saja
             pharmacists: [
-                },
                 {
                     id: 'ph1',
-                    name: 'apt. Siska Melina, M.Sc., S.Farm',
-                    title: 'Apoteker Konsultan Obat & Dosis',
-                    sipa: 'SIPA: 19890320/SIPA-32.75/2019/0812',
-                    greeting: 'Halo, saya apt. Siska. Silakan ceritakan keluhannya atau barangkali ada aturan minum obat yang ingin ditanyakan.'
+                    name: 'apt. Farhan Pratama, S.Farm',
+                    title: 'Apoteker Penanggung Jawab Utama (Siaga 24 Jam)',
+                    sipa: 'SIPA: 19910412/SIPA-32.75/2021/1042',
+                    greeting: 'Halo! Saya apt. Farhan dari Apotek Sefizlumia 24 Jam. Silakan, ada keluhan apa yang bisa saya bantu hari ini?'
                 }
             ],
             products: [
