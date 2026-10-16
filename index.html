@@ -154,7 +154,7 @@
                     <div class="inline-flex flex-wrap justify-center items-center gap-3">
                         <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/15 backdrop-blur-md border border-white/20 text-xs sm:text-sm font-bold text-emerald-300">
                             <i class="fa-solid fa-clock"></i>
-                            <span>Buka 24 Jam Nonstop • Setiap Hari</span>
+                            <span>Buka 24 Jam • Setiap Hari</span>
                         </div>
                     </div>
                     <div class="flex flex-wrap justify-center items-center gap-4 pt-4">
@@ -164,7 +164,7 @@
                         </button>
                         <button onclick="navigateTo('queue')" class="px-8 py-4 rounded-2xl bg-amber-500 hover:bg-amber-400 text-slate-900 font-bold text-sm shadow-lg transition-all hover:scale-105 flex items-center gap-2">
                             <i class="fa-solid fa-users-line"></i>
-                            <span>Ambil Nomor Antrean 24 Jam</span>
+                            <span>Ambil Nomor Antrean </span>
                         </button>
                         <button onclick="navigateTo('rx-upload-view')" class="px-8 py-4 rounded-2xl bg-rose-600 hover:bg-rose-500 text-white font-bold text-sm shadow-lg transition-all hover:scale-105 flex items-center gap-2">
                             <i class="fa-solid fa-file-medical"></i>
@@ -599,7 +599,7 @@
                     </div>
                     <h1 class="text-3xl font-extrabold text-slate-800">Apotek Sefizlumia Digital (Buka 24 Jam)</h1>
                     <p class="text-slate-600 text-sm leading-relaxed">
-                        Mitra Kesehatan Terpercaya Anda untuk Keluarga. Menyediakan layanan konsultasi apoteker berlisensi, katalog obat terverifikasi, nomor antrean pasien 24 jam, sistem pembayaran aman (QRIS & E-Wallet), serta pelacakan pesanan real-time.
+                        Mitra Kesehatan Terpercaya Anda untuk Keluarga. Menyediakan layanan konsultasi apoteker berlisensi, katalog obat terverifikasi, nomor antrean pasien, sistem pembayaran aman (QRIS & E-Wallet), serta pelacakan pesanan real-time.
                     </p>
                 </div>
             </div>
@@ -659,7 +659,7 @@
             <!-- Tab Content: Queue Management -->
             <div id="admin-tab-queue" class="admin-tab-content space-y-4">
                 <div class="flex justify-between items-center">
-                    <h4 class="font-bold text-slate-800 text-sm">Daftar Antrean Pasien (24 Jam)</h4>
+                    <h4 class="font-bold text-slate-800 text-sm">Daftar Antrean Pasien </h4>
                     <span class="text-xs text-slate-400" id="admin-queue-last-update">Pembaruan terakhir: -</span>
                 </div>
                 <div id="admin-queue-list-container" class="space-y-3"></div>
@@ -704,11 +704,11 @@
             </div>
             <div>
                 <h4 class="font-bold text-white text-sm mb-3">Jam Operasional</h4>
-                <p class="text-emerald-400 font-bold">Buka 24 Jam • Setiap Hari (Nonstop)</p>
+                <p class="text-emerald-400 font-bold">Buka 24 Jam • Setiap Hari</p>
             </div>
             <div>
                 <h4 class="font-bold text-white text-sm mb-3">Kontak Resmi WhatsApp</h4>
-                <p><button onclick="openDirectWhatsApp('Halo Apotek Sefizlumia, saya ingin terhubung dengan layanan apotek.')" class="text-emerald-400 hover:underline font-bold inline-flex items-center gap-1"><i class="fa-brands fa-whatsapp"></i> +62 896-0704-0011 (Klik Langsung)</button></p>
+                <p><button onclick="openDirectWhatsApp('Halo Apotek Sefizlumia, saya ingin terhubung dengan layanan apotek.')" class="text-emerald-400 hover:underline font-bold inline-flex items-center gap-1"><i class="fa-brands fa-whatsapp"></i> +62 896-0704-0011 </button></p>
             </div>
         </div>
         <div class="border-t border-slate-800 py-6 text-center text-slate-500">
@@ -755,14 +755,13 @@
                 }
             ],
             isAdminAuthenticated: false,
-            // Jumlah apoteker disesuaikan menjadi tepat 1 orang apoteker saja
             pharmacists: [
                 {
                     id: 'ph1',
-                    name: 'apt. Farhan Pratama, S.Farm',
+                    name: 'apt. Kieve Pratama, S.Farm',
                     title: 'Apoteker Penanggung Jawab Utama (Siaga 24 Jam)',
                     sipa: 'SIPA: 19910412/SIPA-32.75/2021/1042',
-                    greeting: 'Halo! Saya apt. Farhan dari Apotek Sefizlumia 24 Jam. Silakan, ada keluhan apa yang bisa saya bantu hari ini?'
+                    greeting: 'Halo! Saya apt. Kieve Pratama dari Apotek Sefizlumia 24 Jam. Silakan, ada keluhan apa yang bisa saya bantu hari ini?'
                 }
             ],
             products: [
