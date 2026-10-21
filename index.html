@@ -70,7 +70,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20 gap-4">
                 <!-- Brand Logo -->
-                <a<!-- Brand Logo -->
+               <!-- Brand Logo -->
 <a href="#" onclick="navigateTo('home'); return false;" class="flex items-center gap-3 group">
     <img src="logo-sefizlumia.png" alt="Apotek Sefizlumia Logo" class="w-12 h-12 object-contain group-hover:scale-105 transition-transform">
     <div>
@@ -81,6 +81,13 @@
         <p class="text-[10px] font-semibold uppercase tracking-wider text-sage-600 -mt-1">- APOTEK DIGITAL -</p>
     </div>
 </a>
+                        <div class="flex items-center gap-1">
+                            <span class="text-2xl font-extrabold tracking-tight text-sage-800">Apotek Sefizlumia</span>
+                            <span class="w-2 h-2 rounded-full bg-medical-blue"></span>
+                        </div>
+                        <p class="text-[10px] font-semibold uppercase tracking-wider text-sage-600 -mt-1">SAHABAT KESEHATAN ANDA</p>
+                    </div>
+                </a>
 
                 <!-- Desktop Search Bar -->
                 <div class="hidden lg:flex flex-1 max-w-md mx-6">
@@ -759,7 +766,110 @@
             ],
             isAdminAuthenticated: false,
             pharmacists: [
-                {
+                
+                <!-- Tombol Pemicu Info Obat / Referensi Drugs.com di Katalog atau Chat -->
+<!-- Anda bisa menyisipkan fungsi buka modal ini pada detail produk obat -->
+
+<!-- Modal Referensi Drugs.com Pasien -->
+<div id="drugs-info-modal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto p-6 sm:p-8 space-y-6 shadow-2xl relative">
+        <button onclick="closeDrugsModal()" class="absolute top-5 right-5 p-2 text-slate-400 hover:text-slate-600 rounded-full">
+            <i class="fa-solid fa-xmark text-xl"></i>
+        </button>
+
+        <div class="flex items-center gap-3 border-b border-slate-100 pb-4">
+            <div class="w-12 h-12 bg-medical-lightBlue text-medical-blue rounded-2xl flex items-center justify-center text-xl font-bold">
+                <i class="fa-solid fa-book-medical"></i>
+            </div>
+            <div>
+                <span class="text-[10px] font-bold text-medical-blue uppercase tracking-wider">Referensi Klinis Drugs.com</span>
+                <h3 id="modal-drug-title" class="text-xl font-extrabold text-slate-800">Nama Obat</h3>
+            </div>
+        </div>
+
+        <div class="space-y-4 text-xs text-slate-700">
+            <!-- Indikasi / Kegunaan -->
+            <div class="p-4 bg-sage-50 rounded-2xl border border-sage-100 space-y-1">
+                <h4 class="font-bold text-sage-900 text-sm"><i class="fa-solid fa-circle-check text-sage-600 mr-1.5"></i> Indikasi & Kegunaan</h4>
+                <p id="modal-drug-uses" class="text-slate-600 leading-relaxed">-</p>
+            </div>
+
+            <!-- Cara Penggunaan / Dosis -->
+            <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200 space-y-1">
+                <h4 class="font-bold text-slate-800 text-sm"><i class="fa-solid fa-clock text-amber-600 mr-1.5"></i> Cara Penggunaan & Dosis</h4>
+                <p id="modal-drug-dosage" class="text-slate-600 leading-relaxed">-</p>
+            </div>
+
+            <!-- Efek Samping -->
+            <div class="p-4 bg-rose-50 rounded-2xl border border-rose-100 space-y-1">
+                <h4 class="font-bold text-rose-900 text-sm"><i class="fa-solid fa-triangle-exclamation text-rose-600 mr-1.5"></i> Efek Samping yang Sering Terjadi</h4>
+                <p id="modal-drug-side-effects" class="text-slate-600 leading-relaxed">-</p>
+            </div>
+
+            <!-- Peringatan Keamanan / Kontraindikasi -->
+            <div class="p-4 bg-amber-50 rounded-2xl border border-amber-200 space-y-1">
+                <h4 class="font-bold text-amber-900 text-sm"><i class="fa-solid fa-shield-halved text-amber-600 mr-1.5"></i> Peringatan Penting</h4>
+                <p id="modal-drug-warnings" class="text-slate-600 leading-relaxed">-</p>
+            </div>
+        </div>
+
+        <div class="pt-2 flex items-center justify-between">
+            <span class="text-[10px] text-slate-400">Sumber referensi standar medis internasional (Drugs.com database)</span>
+            <button onclick="closeDrugsModal()" class="px-5 py-2.5 bg-slate-800 hover:bg-slate-900 text-white font-bold text-xs rounded-xl">
+                Tutup
+            </button>
+        </div>
+    </div>
+</div>
+        // Database Referensi Obat Tambahan (Bersumber dari standar Drugs.com)
+const DrugsReferenceDB = {
+    'Paracetamol 500 mg Tablet': {
+        uses: "Digunakan untuk meredakan nyeri ringan hingga sedang (seperti sakit kepala, nyeri haid, sakit gigi, nyeri otot) serta menurunkan demam akibat flu atau infeksi ringan.",
+        dosage: "Dewasa dan anak > 12 tahun: 500 mg - 1000 mg tiap 4-6 jam sekali jika diperlukan. Maksimal 4 gram (4000 mg) per hari. Dikonsumsi sesudah atau sebelum makan.",
+        sideEffects: "Jarang menimbulkan efek samping jika dikonsumsi sesuai dosis anjuran. Efek samping ringan yang mungkin terjadi meliputi mual, reaksi alergi kulit ringan, atau nyeri lambung jika perut kosong.",
+        warnings: "Hindari penggunaan pada pasien dengan gangguan fungsi hati berat atau riwayat alergi paracetamol. Jangan dikonsumsi bersamaan dengan obat lain yang mengandung paracetamol untuk mencegah overdosis."
+    },
+    'Amoxicillin 500 mg (Antibiotik)': {
+        uses: "Antibiotik golongan penisilin untuk mengobati berbagai infeksi bakteri seperti infeksi saluran pernapasan, bronkitis, infeksi telinga, tenggorokan, dan saluran kemih.",
+        dosage: "Sesuai petunjuk resep dokter (Biasanya 250 mg - 500 mg tiap 8 jam selama 7 hingga 14 hari). Harus dihabiskan meskipun gejala sudah membaik untuk mencegah resistensi bakteri.",
+        sideEffects: "Dapat menyebabkan diare ringan, mual, muntah, ruam kulit ringan, atau sariawan ( kandidiasis oral ).",
+        warnings: "Wajib dengan resep dokter dan verifikasi apoteker web. Beritahu dokter jika Anda memiliki riwayat alergi terhadap antibiotik golongan penisilin atau sefalosporin."
+    },
+    'Vitamin C 1000 mg + Zinc': {
+        uses: "Suplemen kesehatan untuk membantu memelihara daya tahan tubuh, mempercepat pemulihan dari sakit, serta sebagai antioksidan menangkal radikal bebas.",
+        dosage: "1 tablet effervescent atau kaplet per hari, dilarutkan dalam segelas air atau diminum langsung sesudah makan.",
+        sideEffects: "Konsumsi dosis tinggi (di atas 2000 mg) dapat memicu gangguan pencernaan seperti kram perut, mual, atau risiko batu ginjal pada individu tertentu.",
+        warnings: "Perbanyak minum air putih selama mengonsumsi suplemen vitamin C dosis tinggi. Konsultasikan dengan apoteker jika Anda memiliki riwayat gangguan ginjal."
+    },
+    'Diazepam 2 mg (Sedatif)': {
+        uses: "Obat golongan psikotropika / sedatif untuk mengatasi kecemasan berat, melemaskan otot, serta membantu mengatasi kejang atau gangguan tidur tertentu.",
+        dosage: "Sesuai resep ketat dokter spesialis/umum. Dosis awal biasanya rendah dan disesuaikan secara bertahap oleh tenaga medis.",
+        sideEffects: "Mengantuk, kelelahan, pusing, lemas otot, ketergantungan fisik jika digunakan jangka panjang tanpa pengawasan.",
+        warnings: "Obat keras / psikotropika. Wajib melampirkan resep dokter asli yang telah diverifikasi apoteker. Dilarang mengemudi atau mengoperasikan mesin berat setelah meminum obat ini."
+    }
+};
+
+// Fungsi untuk membuka modal informasi obat berdasarkan nama obat
+function openDrugReferenceModal(productName) {
+    const data = DrugsReferenceDB[productName] || {
+        uses: "Informasi indikasi klinis standar berdasarkan literatur medis terpercaya.",
+        dosage: "Gunakan sesuai petunjuk pada kemasan obat atau anjuran apoteker/dokter.",
+        sideEffects: "Efek samping bervariasi pada setiap pasien. Laporkan kepada apoteker jika timbul reaksi tidak biasa.",
+        warnings: "Selalu konsultasikan riwayat kesehatan Anda dengan Apoteker Sefizlumia 24 Jam."
+    };
+
+    document.getElementById('modal-drug-title').innerText = productName;
+    document.getElementById('modal-drug-uses').innerText = data.uses;
+    document.getElementById('modal-drug-dosage').innerText = data.dosage;
+    document.getElementById('modal-drug-side-effects').innerText = data.sideEffects;
+    document.getElementById('modal-drug-warnings').innerText = data.warnings;
+
+    document.getElementById('drugs-info-modal').classList.remove('hidden');
+}
+
+function closeDrugsModal() {
+    document.getElementById('drugs-info-modal').classList.add('hidden');
+}
                     id: 'ph1',
                     name: 'apt. Kieve Pratama, S.Farm',
                     title: 'Apoteker Penanggung Jawab Utama (Siaga 24 Jam)',
