@@ -54,11 +54,12 @@
 </head>
 <body class="bg-slate-50 text-slate-800 antialiased selection:bg-sage-500 selection:text-white flex flex-col min-h-screen">
 
+    <!-- Top Bar Status -->
     <div id="top-bar" class="bg-sage-700 text-white text-xs py-2 px-4">
         <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
             <div class="flex items-center gap-2">
                 <span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                <span id="txt-top-status">Apotek Sefizlumia Digital Resmi • Buka 24 Jam Setiap Hari (WhatsApp: +62 896-0704-0011)</span>
+                <span id="txt-top-status">Apotek Sefizlumia Digital Resmi • Siaga 24 Jam Setiap Hari (WhatsApp: +62 896-0704-0011)</span>
             </div>
             <div class="flex items-center gap-4 text-xs">
                 <span class="hidden md:inline"><i class="fa-solid fa-location-dot mr-1"></i> Suranenggala, Cirebon</span>
@@ -66,21 +67,16 @@
         </div>
     </div>
 
+    <!-- Header / Navigation -->
     <header class="sticky top-0 z-40 glass-nav border-b border-slate-200 shadow-sm transition-all duration-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20 gap-4">
                 <!-- Brand Logo -->
-               <!-- Brand Logo -->
-<a href="#" onclick="navigateTo('home'); return false;" class="flex items-center gap-3 group">
-    <img src="logo-sefizlumia.png" alt="Apotek Sefizlumia Logo" class="w-12 h-12 object-contain group-hover:scale-105 transition-transform">
-    <div>
-        <div class="flex items-center gap-1">
-            <span class="text-2xl font-extrabold tracking-tight text-sage-800">Sefizlumia</span>
-            <span class="w-2 h-2 rounded-full bg-medical-blue"></span>
-        </div>
-        <p class="text-[10px] font-semibold uppercase tracking-wider text-sage-600 -mt-1">- APOTEK DIGITAL -</p>
-    </div>
-</a>
+                <a href="#" onclick="navigateTo('home'); return false;" class="flex items-center gap-3 group">
+                    <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-sage-700 to-sage-500 text-white flex items-center justify-center shadow-md shadow-sage-200 group-hover:scale-105 transition-transform">
+                        <i class="fa-solid fa-prescription-bottle-medical text-2xl"></i>
+                    </div>
+                    <div>
                         <div class="flex items-center gap-1">
                             <span class="text-2xl font-extrabold tracking-tight text-sage-800">Apotek Sefizlumia</span>
                             <span class="w-2 h-2 rounded-full bg-medical-blue"></span>
@@ -92,7 +88,7 @@
                 <!-- Desktop Search Bar -->
                 <div class="hidden lg:flex flex-1 max-w-md mx-6">
                     <div class="relative w-full">
-                        <input type="text" id="global-search" oninput="handleSearch(this.value)" placeholder="Cari obat, vitamin, atau alat kesehatan..." class="w-full pl-10 pr-10 py-2.5 rounded-full border border-slate-300 bg-slate-50 text-sm focus:outline-none focus:border-sage-500 focus:bg-white focus:ring-2 focus:ring-sage-200 transition-all">
+                        <input type="text" id="global-search" oninput="handleSearch(this.value)" placeholder="Cari obat, vitamin, atau keluhan kesehatan..." class="w-full pl-10 pr-10 py-2.5 rounded-full border border-slate-300 bg-slate-50 text-sm focus:outline-none focus:border-sage-500 focus:bg-white focus:ring-2 focus:ring-sage-200 transition-all">
                         <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-3.5 text-slate-400"></i>
                     </div>
                 </div>
@@ -104,15 +100,15 @@
                     <a href="#" onclick="navigateTo('queue'); return false;" class="nav-item hover:text-sage-600 transition-colors text-emerald-700 font-bold flex items-center gap-1">
                         <i class="fa-solid fa-users-line"></i> Antrean Pasien
                     </a>
-                    <a href="#" onclick="navigateTo('consultation'); return false;" class="nav-item hover:text-sage-600 transition-colors flex items-center gap-1.5">
+                    <a href="#" onclick="navigateTo('consultation'); return false;" class="nav-item hover:text-sage-600 transition-colors flex items-center gap-1.5 font-semibold text-sage-700">
                         <span class="relative flex h-2 w-2">
                           <span class="animate-ping absolute inline-flex h-full w-2 rounded-full bg-emerald-400 opacity-75"></span>
                           <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
                         </span>
-                        <span>Konsultasi</span>
+                        <span>Konsultasi Apoteker</span>
                     </a>
                     <a href="#" onclick="navigateTo('rx-upload-view'); return false;" class="nav-item hover:text-sage-600 transition-colors text-rose-600 font-bold flex items-center gap-1">
-                        <i class="fa-solid fa-file-medical"></i> Resep
+                        <i class="fa-solid fa-file-medical"></i> Resep Dokter
                     </a>
                 </nav>
 
@@ -132,10 +128,10 @@
                     <!-- Order Tracking -->
                     <button onclick="navigateTo('orders')" class="hidden sm:flex items-center gap-2 px-3 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-xs font-semibold text-slate-700 transition-colors">
                         <i class="fa-solid fa-receipt text-sage-600"></i>
-                        <span>Pesanan & Pelacakan</span>
+                        <span>Pesanan</span>
                     </button>
 
-                    <!-- Admin / Pharmacist Portal Trigger -->
+                    <!-- Admin / Pharmacist Portal -->
                     <button onclick="openAdminLoginModal()" class="px-3 py-2 rounded-xl bg-sage-800 text-white text-xs font-bold hover:bg-sage-900 transition-all flex items-center gap-1.5 shadow-md">
                         <i class="fa-solid fa-user-shield"></i>
                         <span>Admin / Apoteker</span>
@@ -155,30 +151,26 @@
                         Apotek Sefizlumia Digital
                     </h1>
                     <p class="text-lg sm:text-2xl text-sage-100 font-medium tracking-wide">
-                        "Sahabat Kesehatan Anda • Buka 24 Jam Setiap Hari, Konsultasi & Layanan Resep Obat"
+                        "Sahabat Kesehatan Anda • Konsultasi Apoteker Langsung 24 Jam & Layanan Resep Obat"
                     </p>
                     <div class="inline-flex flex-wrap justify-center items-center gap-3">
                         <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/15 backdrop-blur-md border border-white/20 text-xs sm:text-sm font-bold text-emerald-300">
                             <i class="fa-solid fa-clock"></i>
-                            <span>Buka 24 Jam • Setiap Hari</span>
+                            <span>Siaga 24 Jam • Setiap Hari</span>
                         </div>
                     </div>
                     <div class="flex flex-wrap justify-center items-center gap-4 pt-4">
-                        <button onclick="navigateTo('catalog')" class="px-8 py-4 rounded-2xl bg-emerald-400 hover:bg-emerald-300 text-sage-900 font-bold text-sm shadow-lg transition-all hover:scale-105 flex items-center gap-2">
-                            <i class="fa-solid fa-bag-shopping"></i>
-                            <span>Pilih Katalog Obat</span>
-                        </button>
-                        <button onclick="navigateTo('consultation')" class="px-8 py-4 rounded-2xl bg-sage-500 hover:bg-sage-400 text-white font-bold text-sm shadow-lg transition-all hover:scale-105 flex items-center gap-2">
+                        <button onclick="navigateTo('consultation')" class="px-8 py-4 rounded-2xl bg-emerald-400 hover:bg-emerald-300 text-sage-900 font-bold text-sm shadow-lg transition-all hover:scale-105 flex items-center gap-2">
                             <i class="fa-solid fa-user-doctor"></i>
-                            <span>Konsultasi Apoteker</span>
+                            <span>Konsultasi Apoteker Sekarang</span>
+                        </button>
+                        <button onclick="navigateTo('catalog')" class="px-8 py-4 rounded-2xl bg-white hover:bg-slate-100 text-sage-800 font-bold text-sm shadow-lg transition-all hover:scale-105 flex items-center gap-2">
+                            <i class="fa-solid fa-bag-shopping"></i>
+                            <span>Lihat Katalog Obat</span>
                         </button>
                         <button onclick="navigateTo('queue')" class="px-8 py-4 rounded-2xl bg-amber-500 hover:bg-amber-400 text-slate-900 font-bold text-sm shadow-lg transition-all hover:scale-105 flex items-center gap-2">
                             <i class="fa-solid fa-users-line"></i>
-                            <span>Ambil Nomor Antrean</span>
-                        </button>
-                        <button onclick="navigateTo('rx-upload-view')" class="px-8 py-4 rounded-2xl bg-rose-600 hover:bg-rose-500 text-white font-bold text-sm shadow-lg transition-all hover:scale-105 flex items-center gap-2">
-                            <i class="fa-solid fa-file-medical"></i>
-                            <span>Unggah Resep Obat Keras</span>
+                            <span>Ambil Antrean</span>
                         </button>
                     </div>
                 </div>
@@ -188,31 +180,31 @@
             <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
                 <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm text-center space-y-3">
                     <div class="w-12 h-12 bg-emerald-50 text-emerald-600 rounded-2xl flex items-center justify-center mx-auto text-xl">
-                        <i class="fa-solid fa-clock"></i>
+                        <i class="fa-solid fa-user-nurse"></i>
                     </div>
-                    <h3 class="font-bold text-slate-800 text-sm">Buka 24 Jam</h3>
-                    <p class="text-xs text-slate-500">Layanan farmasi, penebusan resep, dan konsultasi apoteker siaga setiap hari tanpa libur.</p>
+                    <h3 class="font-bold text-slate-800 text-sm">Apoteker Pendamping 24 Jam</h3>
+                    <p class="text-xs text-slate-500">Konsultasikan keluhan seperti demam, pusing, batuk, cemas, atau infeksi secara langsung via website.</p>
                 </div>
                 <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm text-center space-y-3">
                     <div class="w-12 h-12 bg-amber-50 text-amber-600 rounded-2xl flex items-center justify-center mx-auto text-xl">
                         <i class="fa-solid fa-users-line"></i>
                     </div>
                     <h3 class="font-bold text-slate-800 text-sm">Nomor Antrean Pasien</h3>
-                    <p class="text-xs text-slate-500">Ambil nomor antrean digital secara otomatis dengan pembaruan status real-time.</p>
+                    <p class="text-xs text-slate-500">Ambil nomor antrean digital secara otomatis untuk kemudahan pengambilan resep obat.</p>
                 </div>
                 <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm text-center space-y-3">
                     <div class="w-12 h-12 bg-medical-lightBlue text-medical-blue rounded-2xl flex items-center justify-center mx-auto text-xl">
                         <i class="fa-solid fa-credit-card"></i>
                     </div>
                     <h3 class="font-bold text-slate-800 text-sm">Pembayaran QRIS & E-Wallet</h3>
-                    <p class="text-xs text-slate-500">Mendukung QRIS, transfer bank, dan e-wallet (DANA, GoPay, OVO, ShopeePay) dengan verifikasi admin.</p>
+                    <p class="text-xs text-slate-500">Mendukung pembayaran QRIS, Transfer Bank, dan E-Wallet dengan verifikasi yang aman.</p>
                 </div>
                 <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm text-center space-y-3">
                     <div class="w-12 h-12 bg-rose-50 text-rose-600 rounded-2xl flex items-center justify-center mx-auto text-xl">
-                        <i class="fa-solid fa-truck-fast"></i>
+                        <i class="fa-solid fa-file-prescription"></i>
                     </div>
-                    <h3 class="font-bold text-slate-800 text-sm">Pelacakan Real-Time</h3>
-                    <p class="text-xs text-slate-500">Pantau tahapan pesanan obat mulai dari disiapkan hingga tiba di alamat tujuan.</p>
+                    <h3 class="font-bold text-slate-800 text-sm">Layanan Resep Dokter</h3>
+                    <p class="text-xs text-slate-500">Unggah foto resep untuk penyiapan obat keras secara resmi dan terverifikasi.</p>
                 </div>
             </div>
         </section>
@@ -221,12 +213,12 @@
         <section id="view-catalog" class="view-section hidden space-y-8">
             <div class="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-6">
                 <div>
-                    <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-800">Katalog Produk & Obat Lengkap</h1>
-                    <p class="text-sm text-slate-500 mt-1">Pilih produk obat bebas, vitamin, atau obat keras (wajib resep dokter)</p>
+                    <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-800">Katalog Obat & Suplemen</h1>
+                    <p class="text-sm text-slate-500 mt-1">Pilih obat bebas, vitamin, atau obat dengan resep dokter</p>
                 </div>
                 <div class="flex items-center gap-3">
-                    <button onclick="navigateTo('rx-upload-view')" class="px-4 py-2.5 bg-rose-600 hover:bg-rose-700 text-white rounded-xl text-xs font-bold flex items-center gap-2">
-                        <i class="fa-solid fa-file-medical"></i> Khusus Pesan Resep Obat Keras
+                    <button onclick="navigateTo('consultation')" class="px-4 py-2.5 bg-sage-600 hover:bg-sage-700 text-white rounded-xl text-xs font-bold flex items-center gap-2">
+                        <i class="fa-solid fa-comments"></i> Tanya Apoteker Kebijakan Penggunaan Obat
                     </button>
                 </div>
             </div>
@@ -234,12 +226,12 @@
             <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
                 <div class="lg:col-span-1 space-y-6 bg-white p-6 rounded-3xl border border-slate-200 shadow-sm h-fit">
                     <div class="flex items-center justify-between border-b border-slate-100 pb-4">
-                        <h3 class="font-bold text-slate-800 text-sm">Filter Katalog</h3>
+                        <h3 class="font-bold text-slate-800 text-sm">Filter Obat</h3>
                         <button onclick="resetFilters()" class="text-xs text-rose-600 font-semibold hover:underline">Reset</button>
                     </div>
 
                     <div class="space-y-2">
-                        <label class="text-xs font-bold text-slate-700">Pencarian</label>
+                        <label class="text-xs font-bold text-slate-700">Pencarian Obat</label>
                         <input type="text" id="catalog-search-input" oninput="applyFilters()" placeholder="Ketik nama obat..." class="w-full px-3 py-2 text-xs rounded-xl border border-slate-300">
                     </div>
 
@@ -272,26 +264,26 @@
             </div>
         </section>
 
-        <!-- VIEW 2.5: PATIENT QUEUE (NOMOR ANTREAN PASIEN) -->
+        <!-- VIEW 2.5: PATIENT QUEUE -->
         <section id="view-queue" class="view-section hidden space-y-8">
             <div class="bg-gradient-to-r from-amber-700 to-amber-600 text-white p-8 sm:p-10 rounded-3xl shadow-lg relative overflow-hidden">
                 <div class="max-w-2xl space-y-3 relative z-10">
                     <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/10 text-white border border-white/20 text-xs font-semibold">
-                        <i class="fa-solid fa-clock"></i> Layanan Antrean 24 Jam Siaga
+                        <i class="fa-solid fa-clock"></i> Layanan Antrean 24 Jam
                     </div>
-                    <h1 class="text-2xl sm:text-4xl font-extrabold">Nomor Antrean Pasien Apotek</h1>
+                    <h1 class="text-2xl sm:text-4xl font-extrabold">Nomor Antrean Pasien</h1>
                     <p class="text-sm text-amber-100">
-                        Ambil nomor antrean Anda secara online. Sistem akan memberikan nomor urut secara otomatis untuk pelayanan resep, pembelian obat, maupun konsultasi apoteker.
+                        Ambil nomor antrean Anda secara online untuk penebusan resep, konsul apoteker, atau pengambilan obat.
                     </p>
                 </div>
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                <!-- Status Board & Live Counter -->
+                <!-- Status Board -->
                 <div class="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200 shadow-sm space-y-6 text-center">
                     <h3 class="font-bold text-slate-800 text-base border-b border-slate-100 pb-3">Status Antrean Saat Ini</h3>
                     <div class="p-6 bg-amber-50 rounded-2xl border border-amber-200 space-y-2">
-                        <span class="text-xs font-bold text-amber-800 uppercase tracking-wider block">Nomor Sedang Dilayani</span>
+                        <span class="text-xs font-bold text-amber-800 uppercase tracking-wider block">Sedang Dilayani</span>
                         <div id="current-serving-number" class="text-4xl sm:text-6xl font-black text-amber-700">A-000</div>
                         <div id="current-serving-name" class="text-xs font-semibold text-slate-600">-</div>
                     </div>
@@ -318,7 +310,7 @@
                                 <input type="text" id="queue-patient-name" required placeholder="Nama lengkap" class="w-full px-4 py-2.5 text-xs rounded-xl border border-slate-300">
                             </div>
                             <div>
-                                <label class="block text-xs font-bold text-slate-700 mb-1">Nomor WhatsApp / Telepon *</label>
+                                <label class="block text-xs font-bold text-slate-700 mb-1">Nomor WhatsApp *</label>
                                 <input type="tel" id="queue-patient-phone" required placeholder="081234567890" class="w-full px-4 py-2.5 text-xs rounded-xl border border-slate-300">
                             </div>
                         </div>
@@ -326,9 +318,9 @@
                         <div>
                             <label class="block text-xs font-bold text-slate-700 mb-1">Keperluan Layanan *</label>
                             <select id="queue-service-type" class="w-full px-4 py-2.5 text-xs rounded-xl border border-slate-300 bg-white">
-                                <option value="Penebusan Resep Obat Keras">Penebusan Resep Obat Keras</option>
-                                <option value="Pembelian Obat Bebas / Vitamin">Pembelian Obat Bebas / Vitamin</option>
                                 <option value="Konsultasi Apoteker 24 Jam">Konsultasi Apoteker 24 Jam</option>
+                                <option value="Penebusan Resep Dokter">Penebusan Resep Dokter</option>
+                                <option value="Pembelian Obat Bebas / Vitamin">Pembelian Obat Bebas / Vitamin</option>
                             </select>
                         </div>
 
@@ -338,7 +330,7 @@
                     </form>
 
                     <div class="border-t border-slate-100 pt-6 space-y-4">
-                        <h4 class="font-bold text-slate-800 text-sm">Daftar Antrean Aktif Hari Ini</h4>
+                        <h4 class="font-bold text-slate-800 text-sm">Daftar Antrean Hari Ini</h4>
                         <div id="patient-queue-list" class="space-y-2 max-h-64 overflow-y-auto"></div>
                     </div>
                 </div>
@@ -350,48 +342,48 @@
             <div class="bg-gradient-to-r from-rose-800 to-rose-700 text-white p-8 sm:p-10 rounded-3xl shadow-lg relative overflow-hidden">
                 <div class="max-w-2xl space-y-3 relative z-10">
                     <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/10 text-white border border-white/20 text-xs font-semibold">
-                        <i class="fa-solid fa-shield-halved"></i> Layanan Resmi Resep Dokter 24 Jam
+                        <i class="fa-solid fa-shield-halved"></i> Layanan Resmi Resep Dokter
                     </div>
-                    <h1 class="text-2xl sm:text-4xl font-extrabold">Unggah Resep & Pesan Obat Keras</h1>
+                    <h1 class="text-2xl sm:text-4xl font-extrabold">Unggah Resep Dokter</h1>
                     <p class="text-sm text-rose-100">
-                        Pembelian obat keras wajib melampirkan foto resep dokter. Unggah resep Anda di sini untuk diverifikasi dan disetujui oleh Apoteker kami.
+                        Sesuai peraturan kefarmasian, pembelian obat keras wajib melampirkan foto resep dokter untuk diverifikasi oleh Apoteker kami.
                     </p>
                 </div>
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
                 <div class="lg:col-span-2 bg-white p-6 sm:p-8 rounded-3xl border border-slate-200 shadow-sm space-y-6">
-                    <h3 class="font-bold text-slate-800 text-base border-b border-slate-100 pb-3">Formulir Pesanan Resep Obat Keras</h3>
+                    <h3 class="font-bold text-slate-800 text-base border-b border-slate-100 pb-3">Formulir Penebusan Resep Dokter</h3>
                     
                     <form id="rx-standalone-form" onsubmit="submitStandaloneRxOrder(event)" class="space-y-4">
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             <div>
-                                <label class="block text-xs font-bold text-slate-700 mb-1">Nama Pasien / Pemesan *</label>
-                                <input type="text" id="rx-patient-name" required placeholder="Nama lengkap sesuai resep" class="w-full px-4 py-2.5 text-xs rounded-xl border border-slate-300">
+                                <label class="block text-xs font-bold text-slate-700 mb-1">Nama Pasien *</label>
+                                <input type="text" id="rx-patient-name" required placeholder="Nama lengkap pasien" class="w-full px-4 py-2.5 text-xs rounded-xl border border-slate-300">
                             </div>
                             <div>
-                                <label class="block text-xs font-bold text-slate-700 mb-1">Nomor WhatsApp Aktif *</label>
+                                <label class="block text-xs font-bold text-slate-700 mb-1">Nomor WhatsApp *</label>
                                 <input type="tel" id="rx-patient-phone" required placeholder="081234567890" class="w-full px-4 py-2.5 text-xs rounded-xl border border-slate-300">
                             </div>
                         </div>
 
                         <div>
-                            <label class="block text-xs font-bold text-slate-700 mb-1">Catatan Obat / Permintaan Resep Dokter *</label>
-                            <textarea id="rx-patient-notes" required rows="3" placeholder="Sebutkan nama obat keras sesuai resep dokter beserta dosisnya..." class="w-full px-4 py-2.5 text-xs rounded-xl border border-slate-300"></textarea>
+                            <label class="block text-xs font-bold text-slate-700 mb-1">Catatan Obat / Instruksi Dokter *</label>
+                            <textarea id="rx-patient-notes" required rows="3" placeholder="Sebutkan nama obat atau petunjuk dokter pada resep..." class="w-full px-4 py-2.5 text-xs rounded-xl border border-slate-300"></textarea>
                         </div>
 
                         <div class="space-y-2">
-                            <label class="block text-xs font-bold text-slate-700">Unggah Foto Resep Dokter (Wajib) *</label>
+                            <label class="block text-xs font-bold text-slate-700">Unggah Foto Resep Dokter *</label>
                             <input type="file" id="rx-standalone-file" required accept="image/*" class="w-full text-xs text-slate-500 file:mr-4 file:py-2.5 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-bold file:bg-rose-600 file:text-white hover:file:bg-rose-700 cursor-pointer">
                         </div>
 
                         <div>
                             <label class="block text-xs font-bold text-slate-700 mb-1">Alamat Pengiriman Lengkap *</label>
-                            <textarea id="rx-patient-address" required rows="2" placeholder="Alamat lengkap..." class="w-full px-4 py-2.5 text-xs rounded-xl border border-slate-300"></textarea>
+                            <textarea id="rx-patient-address" required rows="2" placeholder="Alamat pengiriman obat..." class="w-full px-4 py-2.5 text-xs rounded-xl border border-slate-300"></textarea>
                         </div>
 
                         <button type="submit" class="w-full py-4 bg-rose-600 hover:bg-rose-700 text-white font-bold text-xs rounded-xl shadow-md transition-all flex items-center justify-center gap-2">
-                            <i class="fa-solid fa-paper-plane"></i> Kirim Resep untuk Diverifikasi Apoteker
+                            <i class="fa-solid fa-paper-plane"></i> Kirim Resep ke Apoteker
                         </button>
                     </form>
                 </div>
@@ -403,63 +395,96 @@
                                 <i class="fa-brands fa-whatsapp"></i>
                             </div>
                             <div>
-                                <h4 class="font-bold text-emerald-900 text-sm">Konsultasi Resep via WhatsApp</h4>
-                                <p class="text-xs text-emerald-700">Terhubung langsung ke apoteker 24 Jam (+62 896-0704-0011).</p>
+                                <h4 class="font-bold text-emerald-900 text-sm">Konsultasi Resep via WA</h4>
+                                <p class="text-xs text-emerald-700">Apoteker siap membantu verifikasi resep Anda secara mendalam (+62 896-0704-0011).</p>
                             </div>
                         </div>
-                        <button onclick="openDirectWhatsApp('Halo Apotek Sefizlumia, saya ingin konsultasi resep dokter.')" class="w-full py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs rounded-xl shadow-md flex items-center justify-center gap-2">
-                            <i class="fa-brands fa-whatsapp text-base"></i> Hubungi WhatsApp
+                        <button onclick="openDirectWhatsApp('Halo Apotek Sefizlumia, saya ingin mengirimkan foto resep dokter untuk diverifikasi.')" class="w-full py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs rounded-xl shadow-md flex items-center justify-center gap-2">
+                            <i class="fa-brands fa-whatsapp text-base"></i> Hubungi Apoteker via WA
                         </button>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- VIEW 3: CONSULTATION -->
+        <!-- VIEW 3: CONSULTATION WITH 1 PHARMACIST -->
         <section id="view-consultation" class="view-section hidden space-y-8">
             <div class="bg-gradient-to-r from-sage-800 to-sage-700 text-white p-8 sm:p-10 rounded-3xl shadow-lg relative overflow-hidden">
                 <div class="max-w-2xl space-y-3 relative z-10">
                     <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-emerald-400/20 text-emerald-300 border border-emerald-400/30 text-xs font-semibold">
-                        <i class="fa-solid fa-clock"></i> Jam Operasional: Buka 24 Jam Setiap Hari
+                        <i class="fa-solid fa-clock"></i> Layanan Konsultasi Online Siaga 24 Jam
                     </div>
-                    <h1 class="text-2xl sm:text-4xl font-extrabold">Konsultasi Apoteker 24 Jam</h1>
+                    <h1 class="text-2xl sm:text-4xl font-extrabold">Konsultasi Apoteker Langsung</h1>
                     <p class="text-sm text-sage-100">
-                        Diskusikan keluhan kesehatan dan obat-obatan Anda secara langsung dengan Apoteker Penanggung Jawab kami.
+                        Tanyakan keluhan kesehatan, aturan pakai, efek samping, atau rekomendasi obat secara langsung pada Apoteker Penanggung Jawab kami melalui fitur chat di bawah ini.
                     </p>
-                    <div class="pt-2">
-                        <button onclick="openDirectWhatsApp('Halo Apotek Sefizlumia, saya ingin berkonsultasi langsung dengan apoteker.')" class="px-6 py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs rounded-xl shadow-md inline-flex items-center gap-2">
-                            <i class="fa-brands fa-whatsapp text-base"></i> Buka Chat WhatsApp Langsung
-                        </button>
-                    </div>
                 </div>
             </div>
 
-            <!-- Single Pharmacist Consultation Card -->
-            <div class="max-w-xl mx-auto" id="pharmacist-selection-list"></div>
+            <!-- Single Pharmacist Card Profile -->
+            <div class="max-w-3xl mx-auto bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-6">
+                <div class="flex flex-col sm:flex-row items-center sm:items-start gap-6 border-b border-slate-100 pb-6 text-center sm:text-left">
+                    <div class="w-24 h-24 rounded-3xl bg-sage-100 text-sage-700 flex items-center justify-center text-4xl shadow-inner border-2 border-sage-200 shrink-0">
+                        <i class="fa-solid fa-user-nurse"></i>
+                    </div>
+                    <div class="space-y-2">
+                        <div class="flex flex-wrap items-center justify-center sm:justify-start gap-2">
+                            <span class="inline-block w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                            <span class="text-xs font-bold text-emerald-600 uppercase tracking-wider">Apoteker Siaga Online</span>
+                        </div>
+                        <h2 class="text-xl sm:text-2xl font-black text-slate-800">apt. Kieve Pratama, S.Farm</h2>
+                        <p class="text-xs text-sage-700 font-bold">Apoteker Penanggung Jawab Apotek Sefizlumia</p>
+                        <p class="text-[11px] text-slate-400 font-mono">SIPA: 19910412/SIPA-32.75/2021/1042</p>
+                        <p class="text-xs text-slate-600 pt-1 leading-relaxed">
+                            "Selamat datang! Saya siap membantu menjawab keluhan kesehatan Anda, merekomendasikan obat bebas yang tepat, serta memberikan edukasi dosis dan aturan pakai obat secara detail."
+                        </p>
+                    </div>
+                </div>
 
-            <!-- Chat Box -->
-            <div id="live-chat-box-container" class="hidden max-w-3xl mx-auto bg-white rounded-3xl border border-slate-200 shadow-xl overflow-hidden mt-6">
-                <div class="bg-sage-700 text-white p-4 sm:p-6 flex items-center justify-between">
-                    <div>
-                        <h3 id="active-chat-name" class="font-bold text-base">Nama Apoteker</h3>
-                        <p id="active-chat-title" class="text-xs text-emerald-300">S.Farm, Apt • Status: Siaga 24 Jam</p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <button onclick="startLiveChat()" class="flex-1 py-3.5 bg-sage-600 hover:bg-sage-700 text-white font-bold text-xs rounded-2xl shadow-md transition-all flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-comments text-base"></i> Mulai Chat Konsultasi di Website
+                    </button>
+                    <button onclick="openDirectWhatsApp('Halo apt. Kieve Pratama, saya ingin berkonsultasi mengenai keluhan kesehatan saya.')" class="flex-1 py-3.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs rounded-2xl shadow-md transition-all flex items-center justify-center gap-2">
+                        <i class="fa-brands fa-whatsapp text-base"></i> Konsultasi via WhatsApp
+                    </button>
+                </div>
+            </div>
+
+            <!-- Chat Box Container -->
+            <div id="live-chat-box-container" class="max-w-3xl mx-auto bg-white rounded-3xl border border-slate-200 shadow-xl overflow-hidden transition-all">
+                <div class="bg-sage-700 text-white p-4 sm:p-5 flex items-center justify-between">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-sage-600 flex items-center justify-center text-lg border border-sage-400">
+                            <i class="fa-solid fa-user-nurse"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-sm">apt. Kieve Pratama, S.Farm</h3>
+                            <p class="text-[10px] text-emerald-300">Apoteker Sefizlumia • Aktif Menjawab</p>
+                        </div>
                     </div>
                     <div class="flex items-center gap-2">
-                        <button onclick="openDirectWhatsApp('Halo apoteker, saya berkonsultasi melalui web Sefizlumia.')" class="px-3 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold flex items-center gap-1.5">
-                            <i class="fa-brands fa-whatsapp"></i> WhatsApp
-                        </button>
-                        <button onclick="closeLiveChat()" class="p-2 text-white/80 hover:text-white rounded-lg">
-                            <i class="fa-solid fa-xmark text-lg"></i>
+                        <button onclick="openDirectWhatsApp('Halo apt. Kieve Pratama, saya melanjutkan konsultasi dari website Sefizlumia.')" class="px-3 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold flex items-center gap-1.5">
+                            <i class="fa-brands fa-whatsapp"></i> WA
                         </button>
                     </div>
                 </div>
 
-                <div id="chat-messages-scroll" class="p-6 h-80 overflow-y-auto space-y-4 bg-slate-50/50"></div>
+                <!-- Scrollable Chat Area -->
+                <div id="chat-messages-scroll" class="p-4 sm:p-6 h-96 overflow-y-auto space-y-4 bg-slate-50/70">
+                    <div class="flex justify-start">
+                        <div class="max-w-md p-4 rounded-2xl text-xs bg-white text-slate-800 border border-slate-200 shadow-sm space-y-2">
+                            <p class="font-bold text-sage-700">apt. Kieve Pratama, S.Farm</p>
+                            <p>Halo! Saya Apoteker Kieve dari Apotek Sefizlumia. Silakan sampaikan keluhan yang Anda rasakan saat ini dan saya akan memberikan saran pengobatan yang tepat serta aman untuk Anda.</p>
+                        </div>
+                    </div>
+                </div>
 
-                <div class="p-4 bg-white border-t border-slate-200 flex items-center gap-3">
-                    <input type="text" id="chat-input-msg" onkeydown="if(event.key==='Enter') sendChatMessage()" placeholder="Ketik keluhan kesehatan Anda..." class="flex-1 px-4 py-3 rounded-xl border border-slate-300 text-xs focus:outline-none focus:border-sage-500">
-                    <button onclick="sendChatMessage()" class="px-6 py-3 bg-sage-600 hover:bg-sage-700 text-white font-bold text-xs rounded-xl shadow-md transition-all flex items-center gap-2">
-                        <i class="fa-solid fa-paper-plane"></i> <span>Kirim</span>
+                <!-- Input Chat Bar -->
+                <div class="p-4 bg-white border-t border-slate-200 flex items-center gap-2 sm:gap-3">
+                    <input type="text" id="chat-input-msg" onkeydown="if(event.key==='Enter') sendChatMessage()" placeholder="Ketik keluhan atau pertanyaan Anda di sini..." class="flex-1 px-4 py-3 rounded-xl border border-slate-300 text-xs focus:outline-none focus:border-sage-500">
+                    <button onclick="sendChatMessage()" class="px-5 py-3 bg-sage-600 hover:bg-sage-700 text-white font-bold text-xs rounded-xl shadow-md transition-all flex items-center gap-2 shrink-0">
+                        <i class="fa-solid fa-paper-plane"></i> <span class="hidden sm:inline">Kirim</span>
                     </button>
                 </div>
             </div>
@@ -473,7 +498,7 @@
                     <p class="text-xs text-slate-500 mt-1">Pilih metode pembayaran (QRIS, Transfer Bank, E-Wallet) dan selesaikan pesanan Anda.</p>
                 </div>
                 <button onclick="openDirectWhatsApp('Halo Apotek Sefizlumia, saya ingin konfirmasi pesanan di keranjang.')" class="px-4 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold flex items-center gap-2">
-                    <i class="fa-brands fa-whatsapp"></i> Chat WhatsApp
+                    <i class="fa-brands fa-whatsapp"></i> Chat WA
                 </button>
             </div>
 
@@ -494,7 +519,7 @@
                         <div id="cart-items-container" class="divide-y divide-slate-100"></div>
                     </div>
 
-                    <!-- Prescription Upload if has Rx -->
+                    <!-- Prescription Upload Requirement -->
                     <div id="rx-upload-box" class="hidden bg-amber-50 rounded-3xl border border-amber-200 p-6 space-y-4">
                         <div class="flex items-center gap-3">
                             <div class="w-10 h-10 rounded-xl bg-amber-500 text-white flex items-center justify-center text-lg">
@@ -502,7 +527,7 @@
                             </div>
                             <div>
                                 <h4 class="font-bold text-amber-900 text-sm">Unggah Resep Dokter Wajib</h4>
-                                <p class="text-xs text-amber-700">Keranjang berisi obat keras. Unggah foto resep untuk verifikasi apoteker.</p>
+                                <p class="text-xs text-amber-700">Keranjang berisi obat keras. Mohon unggah foto resep dokter Anda.</p>
                             </div>
                         </div>
                         <input type="file" id="rx-file-input" accept="image/*" onchange="handleRxUploadChange(this)" class="w-full text-xs text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-bold file:bg-amber-600 file:text-white hover:file:bg-amber-700">
@@ -531,7 +556,7 @@
                                 <input type="radio" name="payment_method" value="E-Wallet" class="text-sage-600">
                                 <div>
                                     <span class="font-bold text-xs text-slate-800 block">E-Wallet</span>
-                                    <span class="text-[10px] text-slate-500">DANA, GoPay, OVO, ShopeePay</span>
+                                    <span class="text-[10px] text-slate-500">DANA, GoPay, OVO</span>
                                 </div>
                             </label>
                         </div>
@@ -548,7 +573,7 @@
                                 <span class="font-semibold text-slate-800" id="cart-subtotal">Rp 0</span>
                             </div>
                             <div class="flex justify-between text-slate-600">
-                                <span>Tarif Pengiriman</span>
+                                <span>Biaya Pengiriman</span>
                                 <span class="font-semibold text-emerald-600" id="shipping-cost-display">Rp 6.000</span>
                             </div>
                             <div class="border-t border-slate-100 pt-3 flex justify-between text-sm font-extrabold text-slate-800">
@@ -559,7 +584,7 @@
 
                         <form id="checkout-form" onsubmit="processCheckout(event)" class="space-y-3 pt-2">
                             <div>
-                                <label class="block text-[11px] font-bold text-slate-700">Nama Penerima *</label>
+                                <label class="block text-[11px] font-bold text-slate-700">Nama Pemesan *</label>
                                 <input type="text" id="checkout-name" required placeholder="Nama lengkap" class="w-full px-3 py-2 text-xs rounded-lg border border-slate-300">
                             </div>
                             <div>
@@ -567,12 +592,12 @@
                                 <input type="tel" id="checkout-phone" required placeholder="081234567890" class="w-full px-3 py-2 text-xs rounded-lg border border-slate-300">
                             </div>
                             <div>
-                                <label class="block text-[11px] font-bold text-slate-700">Alamat Pengiriman *</label>
-                                <textarea id="checkout-address" required rows="2" placeholder="Alamat lengkap..." class="w-full px-3 py-2 text-xs rounded-lg border border-slate-300"></textarea>
+                                <label class="block text-[11px] font-bold text-slate-700">Alamat Lengkap *</label>
+                                <textarea id="checkout-address" required rows="2" placeholder="Alamat pengiriman..." class="w-full px-3 py-2 text-xs rounded-lg border border-slate-300"></textarea>
                             </div>
                             <button type="submit" class="w-full py-3.5 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs rounded-xl shadow-md transition-all flex items-center justify-center gap-2">
                                 <i class="fa-solid fa-lock"></i>
-                                <span>Buat Pesanan & Bayar Sekarang</span>
+                                <span>Proses Pesanan & Bayar</span>
                             </button>
                         </form>
                     </div>
@@ -580,19 +605,16 @@
             </div>
         </section>
 
-        <!-- VIEW 5: ORDERS & REAL-TIME SHIPPING TRACKING -->
+        <!-- VIEW 5: ORDERS & REAL-TIME TRACKING -->
         <section id="view-orders" class="view-section hidden space-y-8">
             <div class="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200 shadow-sm flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                 <div>
-                    <h1 class="text-2xl font-extrabold text-slate-800">Riwayat Pesanan & Pelacakan Pengiriman</h1>
-                    <p class="text-xs text-slate-500 mt-1">Pantau status pembayaran, verifikasi admin, serta pelacakan pengiriman obat secara real-time</p>
+                    <h1 class="text-2xl font-extrabold text-slate-800">Riwayat Pesanan & Pelacakan</h1>
+                    <p class="text-xs text-slate-500 mt-1">Pantau status verifikasi resep, pembayaran, dan pengiriman obat secara real-time</p>
                 </div>
                 <div class="flex items-center gap-2">
-                    <button onclick="openDirectWhatsApp('Halo Apotek Sefizlumia, saya ingin menanyakan status pesanan.')" class="px-3 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold flex items-center gap-1.5">
-                        <i class="fa-brands fa-whatsapp"></i> Tanya WhatsApp
-                    </button>
                     <button onclick="renderUserOrders()" class="px-3 py-2 bg-slate-100 hover:bg-slate-200 rounded-xl text-xs font-semibold text-slate-600">
-                        <i class="fa-solid fa-rotate-right mr-1"></i> Perbarui
+                        <i class="fa-solid fa-rotate-right mr-1"></i> Perbarui Status
                     </button>
                 </div>
             </div>
@@ -600,24 +622,9 @@
             <div id="user-orders-list" class="space-y-4"></div>
         </section>
 
-        <!-- VIEW 6: ABOUT -->
-        <section id="view-about" class="view-section hidden space-y-8">
-            <div class="bg-white p-8 sm:p-12 rounded-3xl border border-slate-200 shadow-sm space-y-6">
-                <div class="max-w-3xl space-y-4">
-                    <div class="w-14 h-14 rounded-2xl bg-sage-600 text-white flex items-center justify-center text-3xl shadow-md">
-                        <i class="fa-solid fa-hospital"></i>
-                    </div>
-                    <h1 class="text-3xl font-extrabold text-slate-800">Apotek Sefizlumia Digital (Buka 24 Jam)</h1>
-                    <p class="text-slate-600 text-sm leading-relaxed">
-                        Mitra Kesehatan Terpercaya Anda untuk Keluarga. Menyediakan layanan konsultasi apoteker berlisensi, katalog obat terverifikasi, nomor antrean pasien, sistem pembayaran aman (QRIS & E-Wallet), serta pelacakan pesanan real-time.
-                    </p>
-                </div>
-            </div>
-        </section>
-
     </main>
 
-    <!-- Admin & Pharmacist Secure Login Modal -->
+    <!-- Admin & Pharmacist Login Modal -->
     <div id="admin-login-modal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
         <div class="bg-white rounded-3xl max-w-md w-full p-6 sm:p-8 space-y-6 shadow-2xl relative">
             <button onclick="closeAdminLoginModal()" class="absolute top-5 right-5 p-2 text-slate-400 hover:text-slate-600 rounded-full">
@@ -627,80 +634,63 @@
                 <div class="w-12 h-12 bg-sage-600 text-white rounded-2xl flex items-center justify-center mx-auto text-xl">
                     <i class="fa-solid fa-user-shield"></i>
                 </div>
-                <h3 class="text-xl font-extrabold text-slate-800">Login Dashboard Admin & Apoteker</h3>
-                <p class="text-xs text-slate-500">Masukkan PIN resmi admin untuk mengelola antrean, memverifikasi pembayaran, dan memperbarui status pengiriman.</p>
+                <h3 class="text-xl font-extrabold text-slate-800">Login Admin & Apoteker</h3>
+                <p class="text-xs text-slate-500">Masukkan PIN resmi apoteker/admin untuk verifikasi pesanan dan konsultasi.</p>
             </div>
             <div class="space-y-4">
-                <input type="password" id="admin-pin-input" placeholder="Masukkan PIN (contoh: SEFIZ123)" class="w-full px-4 py-3 text-xs rounded-xl border border-slate-300 text-center tracking-widest font-bold">
+                <input type="password" id="admin-pin-input" placeholder="Masukkan PIN (Gunakan: SEFIZ123)" class="w-full px-4 py-3 text-xs rounded-xl border border-slate-300 text-center tracking-widest font-bold">
                 <button onclick="verifyAdminPin()" class="w-full py-3.5 bg-sage-600 hover:bg-sage-700 text-white font-bold text-xs rounded-xl shadow-md">
-                    <span>Masuk ke Dashboard Admin</span>
+                    <span>Masuk ke Dashboard</span>
                 </button>
             </div>
         </div>
     </div>
 
-    <!-- Comprehensive Admin Dashboard Modal -->
+    <!-- Admin Dashboard Modal -->
     <div id="admin-dashboard-modal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
         <div class="bg-white rounded-3xl max-w-6xl w-full max-h-[92vh] overflow-y-auto p-6 sm:p-8 space-y-6 shadow-2xl relative">
             <button onclick="closeAdminDashboard()" class="absolute top-5 right-5 p-2 text-slate-400 hover:text-slate-600 rounded-full">
                 <i class="fa-solid fa-xmark text-xl"></i>
             </button>
 
-            <!-- Admin Header & Search Filter -->
             <div class="flex flex-col md:flex-row md:items-center justify-between border-b border-slate-100 pb-4 gap-4">
                 <div>
-                    <h3 class="text-xl font-extrabold text-slate-800">Dashboard Admin & Apoteker Sefizlumia</h3>
-                    <p class="text-xs text-slate-500">Kelola antrean pasien, verifikasi pembayaran, validasi resep, dan perbarui pengiriman real-time</p>
+                    <h3 class="text-xl font-extrabold text-slate-800">Dashboard Apoteker & Admin Sefizlumia</h3>
+                    <p class="text-xs text-slate-500">Kelola antrean pasien, status pembayaran, dan pengiriman obat</p>
                 </div>
                 <div class="flex items-center gap-3">
-                    <input type="text" id="admin-search-box" oninput="filterAdminData(this.value)" placeholder="Cari nama, antrean, transaksi, pesanan..." class="px-4 py-2 text-xs rounded-xl border border-slate-300 w-64">
                     <button onclick="logoutAdmin()" class="px-3.5 py-2 bg-rose-50 text-rose-600 rounded-xl text-xs font-bold">Keluar</button>
                 </div>
             </div>
 
             <!-- Tabs Navigation -->
             <div class="flex flex-wrap gap-2 border-b border-slate-100 pb-3">
-                <button onclick="switchAdminTab('queue')" id="tab-btn-queue" class="px-4 py-2 rounded-xl text-xs font-bold bg-sage-600 text-white transition-colors">Kelola Antrean Pasien</button>
+                <button onclick="switchAdminTab('queue')" id="tab-btn-queue" class="px-4 py-2 rounded-xl text-xs font-bold bg-sage-600 text-white transition-colors">Kelola Antrean</button>
                 <button onclick="switchAdminTab('payments')" id="tab-btn-payments" class="px-4 py-2 rounded-xl text-xs font-bold bg-slate-100 text-slate-700 transition-colors">Verifikasi Pembayaran</button>
-                <button onclick="switchAdminTab('orders')" id="tab-btn-orders" class="px-4 py-2 rounded-xl text-xs font-bold bg-slate-100 text-slate-700 transition-colors">Pesanan & Pengiriman</button>
-                <button onclick="switchAdminTab('complaints')" id="tab-btn-complaints" class="px-4 py-2 rounded-xl text-xs font-bold bg-slate-100 text-slate-700 transition-colors">Konsultasi Pasien</button>
+                <button onclick="switchAdminTab('orders')" id="tab-btn-orders" class="px-4 py-2 rounded-xl text-xs font-bold bg-slate-100 text-slate-700 transition-colors">Pengiriman Obat</button>
             </div>
 
-            <!-- Tab Content: Queue Management -->
+            <!-- Tab Content: Queue -->
             <div id="admin-tab-queue" class="admin-tab-content space-y-4">
-                <div class="flex justify-between items-center">
-                    <h4 class="font-bold text-slate-800 text-sm">Daftar Antrean Pasien </h4>
-                    <span class="text-xs text-slate-400" id="admin-queue-last-update">Pembaruan terakhir: -</span>
-                </div>
+                <h4 class="font-bold text-slate-800 text-sm">Daftar Antrean Pasien</h4>
                 <div id="admin-queue-list-container" class="space-y-3"></div>
             </div>
 
-            <!-- Tab Content: Payment Verification -->
+            <!-- Tab Content: Payments -->
             <div id="admin-tab-payments" class="admin-tab-content space-y-4 hidden">
-                <div class="flex justify-between items-center">
-                    <h4 class="font-bold text-slate-800 text-sm">Verifikasi Transaksi & Pembayaran Pasien</h4>
-                    <span class="text-xs text-slate-400" id="admin-pay-last-update">Pembaruan terakhir: -</span>
-                </div>
+                <h4 class="font-bold text-slate-800 text-sm">Verifikasi Transaksi Pembayaran</h4>
                 <div id="admin-payments-list-container" class="space-y-3"></div>
             </div>
 
-            <!-- Tab Content: Orders & Shipping -->
+            <!-- Tab Content: Orders -->
             <div id="admin-tab-orders" class="admin-tab-content space-y-4 hidden">
-                <div class="flex justify-between items-center">
-                    <h4 class="font-bold text-slate-800 text-sm">Manajemen Pesanan & Status Pengiriman Kurir</h4>
-                    <span class="text-xs text-slate-400" id="admin-ord-last-update">Pembaruan terakhir: -</span>
-                </div>
+                <h4 class="font-bold text-slate-800 text-sm">Status Pengiriman Kurir</h4>
                 <div id="admin-orders-list-container" class="space-y-3"></div>
-            </div>
-
-            <!-- Tab Content: Complaints -->
-            <div id="admin-tab-complaints" class="admin-tab-content space-y-4 hidden">
-                <h4 class="font-bold text-slate-800 text-sm">Daftar Konsultasi Keluhan Pasien</h4>
-                <div id="admin-complaints-list-container" class="space-y-3"></div>
             </div>
         </div>
     </div>
 
+    <!-- Footer -->
     <footer class="bg-slate-900 text-slate-400 text-xs border-t border-slate-800 mt-16">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
             <div class="space-y-3">
@@ -710,15 +700,16 @@
                     </div>
                     <span class="text-xl font-extrabold text-white">Apotek Sefizlumia</span>
                 </div>
-                <p>Sahabat Kesehatan Anda untuk Keluarga • Buka 24 Jam Setiap Hari.</p>
+                <p>Sahabat Kesehatan Anda • Layanan Kefarmasian & Konsultasi Apoteker Siaga 24 Jam.</p>
             </div>
             <div>
-                <h4 class="font-bold text-white text-sm mb-3">Jam Operasional</h4>
-                <p class="text-emerald-400 font-bold">Buka 24 Jam • Setiap Hari</p>
+                <h4 class="font-bold text-white text-sm mb-3">Apoteker Penanggung Jawab</h4>
+                <p class="text-white font-semibold">apt. Kieve Pratama, S.Farm</p>
+                <p class="text-slate-500 text-[11px]">SIPA: 19910412/SIPA-32.75/2021/1042</p>
             </div>
             <div>
-                <h4 class="font-bold text-white text-sm mb-3">Kontak Resmi WhatsApp</h4>
-                <p><button onclick="openDirectWhatsApp('Halo Apotek Sefizlumia, saya ingin terhubung dengan layanan apotek.')" class="text-emerald-400 hover:underline font-bold inline-flex items-center gap-1"><i class="fa-brands fa-whatsapp"></i> +62 896-0704-0011 </button></p>
+                <h4 class="font-bold text-white text-sm mb-3">Kontak Whatsapp Resmi</h4>
+                <p><button onclick="openDirectWhatsApp('Halo Apotek Sefizlumia, saya ingin berkonsultasi.')" class="text-emerald-400 hover:underline font-bold inline-flex items-center gap-1"><i class="fa-brands fa-whatsapp"></i> +62 896-0704-0011 </button></p>
             </div>
         </div>
         <div class="border-t border-slate-800 py-6 text-center text-slate-500">
@@ -726,155 +717,34 @@
         </div>
     </footer>
 
+    <!-- JavaScript Application Logic -->
     <script>
         const AppState = {
             activeView: 'home',
             cart: [],
             queueList: JSON.parse(localStorage.getItem('sefiz_queues')) || [
-                { id: 'A-001', name: 'Bapak Budi Santoso', phone: '081234567890', service: 'Penebusan Resep Obat Keras', time: '08:15 WIB', status: 'Selesai' },
-                { id: 'A-002', name: 'Ibu Siti Aminah', phone: '081298765432', service: 'Konsultasi Apoteker 24 Jam', time: '09:30 WIB', status: 'Sedang Dilayani' },
+                { id: 'A-001', name: 'Bapak Budi Santoso', phone: '081234567890', service: 'Konsultasi Apoteker 24 Jam', time: '08:15 WIB', status: 'Selesai' },
+                { id: 'A-002', name: 'Ibu Siti Aminah', phone: '081298765432', service: 'Penebusan Resep Dokter', time: '09:30 WIB', status: 'Sedang Dilayani' },
                 { id: 'A-003', name: 'Sdr. Rizki Ramadhan', phone: '085612345678', service: 'Pembelian Obat Bebas / Vitamin', time: '10:00 WIB', status: 'Menunggu' }
             ],
             orders: JSON.parse(localStorage.getItem('sefiz_orders')) || [
                 {
                     id: 'ORD-90214',
                     trxNo: 'TRX-8849201',
-                    date: '09 Okt, 14:30 WIB',
-                    lastUpdated: '10 Okt, 08:00 WIB',
+                    date: '12 Okt, 14:30 WIB',
+                    lastUpdated: '12 Okt, 15:00 WIB',
                     name: 'Ibu Siti Aminah',
                     phone: '081298765432',
                     address: 'Jl. Raya Suranenggala No. 45, Cirebon',
-                    items: [{ product: { name: 'Amoxicillin 500 mg (Antibiotik)', price: 24000, golongan: 'Obat Keras' }, quantity: 1 }],
-                    subtotal: 24000,
+                    items: [{ product: { name: 'Paracetamol 500 mg Tablet', price: 8500, golongan: 'Obat Bebas' }, quantity: 2 }],
+                    subtotal: 17000,
                     shippingCost: 6000,
-                    total: 30000,
+                    total: 23000,
                     paymentMethod: 'QRIS',
                     paymentStatus: 'Pembayaran Disetujui',
                     shippingStatus: 'Dalam Pengiriman',
-                    hasRx: true,
-                    rxStatus: 'Resep Disetujui Web • Siap Dikirim'
-                }
-            ],
-            patientComplaints: [
-                {
-                    id: 'C-101',
-                    patientName: 'Bapak Rahmat',
-                    time: 'Hari ini, 09.30 WIB',
-                    complaint: 'Demam ringan dan pusing sejak kemarin sore.',
-                    response: 'Halo Bapak Rahmat, silakan istirahat cukup dan minum air putih hangat. Bisa dibantu minum Paracetamol 500mg 3x sehari sesudah makan.'
-                }
-            ],
-            isAdminAuthenticated: false,
-            pharmacists: [
-                
-                <!-- Tombol Pemicu Info Obat / Referensi Drugs.com di Katalog atau Chat -->
-<!-- Anda bisa menyisipkan fungsi buka modal ini pada detail produk obat -->
-
-<!-- Modal Referensi Drugs.com Pasien -->
-<div id="drugs-info-modal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-    <div class="bg-white rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto p-6 sm:p-8 space-y-6 shadow-2xl relative">
-        <button onclick="closeDrugsModal()" class="absolute top-5 right-5 p-2 text-slate-400 hover:text-slate-600 rounded-full">
-            <i class="fa-solid fa-xmark text-xl"></i>
-        </button>
-
-        <div class="flex items-center gap-3 border-b border-slate-100 pb-4">
-            <div class="w-12 h-12 bg-medical-lightBlue text-medical-blue rounded-2xl flex items-center justify-center text-xl font-bold">
-                <i class="fa-solid fa-book-medical"></i>
-            </div>
-            <div>
-                <span class="text-[10px] font-bold text-medical-blue uppercase tracking-wider">Referensi Klinis Drugs.com</span>
-                <h3 id="modal-drug-title" class="text-xl font-extrabold text-slate-800">Nama Obat</h3>
-            </div>
-        </div>
-
-        <div class="space-y-4 text-xs text-slate-700">
-            <!-- Indikasi / Kegunaan -->
-            <div class="p-4 bg-sage-50 rounded-2xl border border-sage-100 space-y-1">
-                <h4 class="font-bold text-sage-900 text-sm"><i class="fa-solid fa-circle-check text-sage-600 mr-1.5"></i> Indikasi & Kegunaan</h4>
-                <p id="modal-drug-uses" class="text-slate-600 leading-relaxed">-</p>
-            </div>
-
-            <!-- Cara Penggunaan / Dosis -->
-            <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200 space-y-1">
-                <h4 class="font-bold text-slate-800 text-sm"><i class="fa-solid fa-clock text-amber-600 mr-1.5"></i> Cara Penggunaan & Dosis</h4>
-                <p id="modal-drug-dosage" class="text-slate-600 leading-relaxed">-</p>
-            </div>
-
-            <!-- Efek Samping -->
-            <div class="p-4 bg-rose-50 rounded-2xl border border-rose-100 space-y-1">
-                <h4 class="font-bold text-rose-900 text-sm"><i class="fa-solid fa-triangle-exclamation text-rose-600 mr-1.5"></i> Efek Samping yang Sering Terjadi</h4>
-                <p id="modal-drug-side-effects" class="text-slate-600 leading-relaxed">-</p>
-            </div>
-
-            <!-- Peringatan Keamanan / Kontraindikasi -->
-            <div class="p-4 bg-amber-50 rounded-2xl border border-amber-200 space-y-1">
-                <h4 class="font-bold text-amber-900 text-sm"><i class="fa-solid fa-shield-halved text-amber-600 mr-1.5"></i> Peringatan Penting</h4>
-                <p id="modal-drug-warnings" class="text-slate-600 leading-relaxed">-</p>
-            </div>
-        </div>
-
-        <div class="pt-2 flex items-center justify-between">
-            <span class="text-[10px] text-slate-400">Sumber referensi standar medis internasional (Drugs.com database)</span>
-            <button onclick="closeDrugsModal()" class="px-5 py-2.5 bg-slate-800 hover:bg-slate-900 text-white font-bold text-xs rounded-xl">
-                Tutup
-            </button>
-        </div>
-    </div>
-</div>
-        // Database Referensi Obat Tambahan (Bersumber dari standar Drugs.com)
-const DrugsReferenceDB = {
-    'Paracetamol 500 mg Tablet': {
-        uses: "Digunakan untuk meredakan nyeri ringan hingga sedang (seperti sakit kepala, nyeri haid, sakit gigi, nyeri otot) serta menurunkan demam akibat flu atau infeksi ringan.",
-        dosage: "Dewasa dan anak > 12 tahun: 500 mg - 1000 mg tiap 4-6 jam sekali jika diperlukan. Maksimal 4 gram (4000 mg) per hari. Dikonsumsi sesudah atau sebelum makan.",
-        sideEffects: "Jarang menimbulkan efek samping jika dikonsumsi sesuai dosis anjuran. Efek samping ringan yang mungkin terjadi meliputi mual, reaksi alergi kulit ringan, atau nyeri lambung jika perut kosong.",
-        warnings: "Hindari penggunaan pada pasien dengan gangguan fungsi hati berat atau riwayat alergi paracetamol. Jangan dikonsumsi bersamaan dengan obat lain yang mengandung paracetamol untuk mencegah overdosis."
-    },
-    'Amoxicillin 500 mg (Antibiotik)': {
-        uses: "Antibiotik golongan penisilin untuk mengobati berbagai infeksi bakteri seperti infeksi saluran pernapasan, bronkitis, infeksi telinga, tenggorokan, dan saluran kemih.",
-        dosage: "Sesuai petunjuk resep dokter (Biasanya 250 mg - 500 mg tiap 8 jam selama 7 hingga 14 hari). Harus dihabiskan meskipun gejala sudah membaik untuk mencegah resistensi bakteri.",
-        sideEffects: "Dapat menyebabkan diare ringan, mual, muntah, ruam kulit ringan, atau sariawan ( kandidiasis oral ).",
-        warnings: "Wajib dengan resep dokter dan verifikasi apoteker web. Beritahu dokter jika Anda memiliki riwayat alergi terhadap antibiotik golongan penisilin atau sefalosporin."
-    },
-    'Vitamin C 1000 mg + Zinc': {
-        uses: "Suplemen kesehatan untuk membantu memelihara daya tahan tubuh, mempercepat pemulihan dari sakit, serta sebagai antioksidan menangkal radikal bebas.",
-        dosage: "1 tablet effervescent atau kaplet per hari, dilarutkan dalam segelas air atau diminum langsung sesudah makan.",
-        sideEffects: "Konsumsi dosis tinggi (di atas 2000 mg) dapat memicu gangguan pencernaan seperti kram perut, mual, atau risiko batu ginjal pada individu tertentu.",
-        warnings: "Perbanyak minum air putih selama mengonsumsi suplemen vitamin C dosis tinggi. Konsultasikan dengan apoteker jika Anda memiliki riwayat gangguan ginjal."
-    },
-    'Diazepam 2 mg (Sedatif)': {
-        uses: "Obat golongan psikotropika / sedatif untuk mengatasi kecemasan berat, melemaskan otot, serta membantu mengatasi kejang atau gangguan tidur tertentu.",
-        dosage: "Sesuai resep ketat dokter spesialis/umum. Dosis awal biasanya rendah dan disesuaikan secara bertahap oleh tenaga medis.",
-        sideEffects: "Mengantuk, kelelahan, pusing, lemas otot, ketergantungan fisik jika digunakan jangka panjang tanpa pengawasan.",
-        warnings: "Obat keras / psikotropika. Wajib melampirkan resep dokter asli yang telah diverifikasi apoteker. Dilarang mengemudi atau mengoperasikan mesin berat setelah meminum obat ini."
-    }
-};
-
-// Fungsi untuk membuka modal informasi obat berdasarkan nama obat
-function openDrugReferenceModal(productName) {
-    const data = DrugsReferenceDB[productName] || {
-        uses: "Informasi indikasi klinis standar berdasarkan literatur medis terpercaya.",
-        dosage: "Gunakan sesuai petunjuk pada kemasan obat atau anjuran apoteker/dokter.",
-        sideEffects: "Efek samping bervariasi pada setiap pasien. Laporkan kepada apoteker jika timbul reaksi tidak biasa.",
-        warnings: "Selalu konsultasikan riwayat kesehatan Anda dengan Apoteker Sefizlumia 24 Jam."
-    };
-
-    document.getElementById('modal-drug-title').innerText = productName;
-    document.getElementById('modal-drug-uses').innerText = data.uses;
-    document.getElementById('modal-drug-dosage').innerText = data.dosage;
-    document.getElementById('modal-drug-side-effects').innerText = data.sideEffects;
-    document.getElementById('modal-drug-warnings').innerText = data.warnings;
-
-    document.getElementById('drugs-info-modal').classList.remove('hidden');
-}
-
-function closeDrugsModal() {
-    document.getElementById('drugs-info-modal').classList.add('hidden');
-}
-                    id: 'ph1',
-                    name: 'apt. Kieve Pratama, S.Farm',
-                    title: 'Apoteker Penanggung Jawab Utama (Siaga 24 Jam)',
-                    sipa: 'SIPA: 19910412/SIPA-32.75/2021/1042',
-                    greeting: 'Halo! Saya apt. Kieve Pratama, S.Farm dari Apotek Sefizlumia 24 Jam. Ada keluhan kesehatan atau pertanyaan seputar penggunaan obat yang bisa saya bantu hari ini?'
+                    hasRx: false,
+                    rxStatus: 'Tidak Ada Resep'
                 }
             ],
             products: [
@@ -884,11 +754,8 @@ function closeDrugsModal() {
                     category: 'Obat Bebas',
                     golongan: 'Obat Bebas',
                     price: 8500,
-                    stock: 120,
                     icon: 'fa-tablets text-emerald-500',
-                    composition: 'Paracetamol 500 mg',
                     usage: 'Meringankan sakit kepala, sakit gigi, dan menurunkan demam.',
-                    dose: 'Dewasa: 1-2 tablet, 3-4 kali sehari.'
                 },
                 {
                     id: 'p2',
@@ -896,11 +763,8 @@ function closeDrugsModal() {
                     category: 'Obat Keras',
                     golongan: 'Obat Keras',
                     price: 24000,
-                    stock: 50,
                     icon: 'fa-capsules text-rose-500',
-                    composition: 'Amoxicillin trihydrate 500 mg',
-                    usage: 'Antibiotik untuk infeksi bakteri (Wajib Resep Dokter & Disetujui Web).',
-                    dose: 'Sesuai petunjuk resep dokter.'
+                    usage: 'Antibiotik infeksi bakteri (Wajib dengan resep dokter).',
                 },
                 {
                     id: 'p3',
@@ -908,29 +772,22 @@ function closeDrugsModal() {
                     category: 'Suplemen',
                     golongan: 'Obat Bebas',
                     price: 45000,
-                    stock: 200,
                     icon: 'fa-bottle-droplet text-amber-500',
-                    composition: 'Vitamin C 1000 mg, Zinc 10 mg',
-                    usage: 'Memelihara daya tahan tubuh sehari-hari.',
-                    dose: '1 tablet per hari.'
+                    usage: 'Menjaga dan memelihara daya tahan tubuh harian.',
                 },
                 {
                     id: 'p4',
-                    name: 'Diazepam 2 mg (Sedatif)',
+                    name: 'Diazepam 2 mg Tablet',
                     category: 'Obat Keras',
                     golongan: 'Obat Keras',
-                    price: 45000,
-                    stock: 20,
+                    price: 35000,
                     icon: 'fa-pills text-rose-600',
-                    composition: 'Diazepam 2 mg',
-                    usage: 'Pengobatan kecemasan dan penenang (Wajib Resep Dokter & Disetujui Web).',
-                    dose: 'Sesuai resep dokter.'
+                    usage: 'Meringankan kecemasan berat atau kejang otot (Resep Dokter).',
                 }
             ]
         };
 
         window.addEventListener('DOMContentLoaded', () => {
-            renderPharmacistsConsultation();
             renderCatalog();
             updateCartUI();
             renderQueueBoard();
@@ -944,7 +801,7 @@ function closeDrugsModal() {
 
         function openDirectWhatsApp(customMessage) {
             const phoneNumber = "6289607040011";
-            const encodedMessage = encodeURIComponent(customMessage || "Halo Apotek Sefizlumia 24 Jam, saya ingin berkonsultasi mengenai obat.");
+            const encodedMessage = encodeURIComponent(customMessage || "Halo apt. Kieve Pratama, saya ingin berkonsultasi mengenai obat.");
             window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, '_blank');
         }
 
@@ -957,11 +814,114 @@ function closeDrugsModal() {
                 target.classList.remove('hidden');
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             }
-            if (viewId === 'consultation') renderPharmacistsConsultation();
             if (viewId === 'orders') renderUserOrders();
             if (viewId === 'queue') renderQueueBoard();
         }
 
+        /* --- KONSULTASI LANSUNG APOTEKER & JAWABAN MEDIS ACCURATE --- */
+        function startLiveChat() {
+            const chatContainer = document.getElementById('live-chat-box-container');
+            chatContainer.classList.remove('hidden');
+            chatContainer.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function sendChatMessage() {
+            const input = document.getElementById('chat-input-msg');
+            const userMsg = input.value.trim();
+            if(!userMsg) return;
+
+            const scrollArea = document.getElementById('chat-messages-scroll');
+            
+            // Append User Message
+            scrollArea.innerHTML += `
+                <div class="flex justify-end">
+                    <div class="max-w-md p-3.5 rounded-2xl text-xs bg-sage-600 text-white shadow-sm space-y-1">
+                        <p class="font-bold text-[10px] text-emerald-200">Anda (Pasien)</p>
+                        <p>${escapeHtml(userMsg)}</p>
+                    </div>
+                </div>
+            `;
+            input.value = '';
+            scrollArea.scrollTop = scrollArea.scrollHeight;
+
+            // Generate Medical Pharmacist Response naturally
+            setTimeout(() => {
+                const responseText = generatePharmacistResponse(userMsg);
+                scrollArea.innerHTML += `
+                    <div class="flex justify-start">
+                        <div class="max-w-md p-4 rounded-2xl text-xs bg-white text-slate-800 border border-slate-200 shadow-sm space-y-2">
+                            <div class="flex items-center justify-between border-b border-slate-100 pb-1.5">
+                                <span class="font-bold text-sage-700">apt. Kieve Pratama, S.Farm</span>
+                                <span class="text-[10px] text-slate-400">Apoteker</span>
+                            </div>
+                            <div class="space-y-2 text-slate-700 leading-relaxed">
+                                ${responseText}
+                            </div>
+                        </div>
+                    </div>
+                `;
+                scrollArea.scrollTop = scrollArea.scrollHeight;
+            }, 900);
+        }
+
+        function generatePharmacistResponse(query) {
+            const lower = query.toLowerCase();
+
+            // Demam / Pusing / Sakit Kepala / Nyeri
+            if (lower.includes('demam') || lower.includes('pusing') || lower.includes('sakit kepala') || lower.includes('nyeri') || lower.includes('sakit gigi')) {
+                return `
+                    <p>Halo, untuk keluhan <strong>demam, pusing, atau nyeri</strong> yang Anda rasakan, rekomendasi penanganan pertamanya adalah obat dengan kandungan <strong>Paracetamol (500 mg)</strong>.</p>
+                    <p><strong>Dosis Rujukan Dewasa:</strong> 1 sampai 2 tablet (500 mg - 1000 mg) setiap 4 hingga 6 jam sekali sesuai kebutuhan saat timbul gejala. Pastikan batas maksimal konsumsi tidak melebihi 4000 mg (8 tablet) dalam kurun waktu 24 jam.</p>
+                    <p><strong>Saran Tambahan:</strong> Minumlah air putih yang cukup dan hindari konsumsi obat lain yang sama-sama mengandung Paracetamol agar tidak terjadi kelebihan dosis. Jika demam berlanjut lebih dari 3 hari, segera lakukan pemeriksaan ke dokter.</p>
+                `;
+            }
+
+            // Infeksi / Bakteri / Batuk Dahak Hijau / Tenggorokan / Amoxicillin
+            if (lower.includes('infeksi') || lower.includes('amoxicillin') || lower.includes('antibiotik') || lower.includes('radang tenggorokan') || lower.includes('batuk hijau') || lower.includes('berdahak')) {
+                return `
+                    <p>Mengenai keluhan infeksi atau penggunaan <strong>Amoxicillin</strong>:</p>
+                    <p>Amoxicillin merupakan antibiotik golongan penisilin yang diindikasikan khusus untuk mengobati infeksi akibat bakteri (seperti infeksi saluran pernapasan, telinga, kulit, atau saluran kemih). Obat ini <strong>tidak efektif</strong> untuk mengobati infeksi akibat virus seperti flu atau batuk biasa.</p>
+                    <p><strong>Aturan Pakai & Catatan Medis:</strong> Dosis lazim dewasa pada umumnya adalah 500 mg setiap 8 jam (3 kali sehari) atau 875 mg setiap 12 jam, diminum bersama atau setelah makan. Pembelian antibiotik wajib menggunakan resep dokter dan harus dihabiskan sesuai jangka waktu yang ditentukan agar tidak menimbulkan resistensi bakteri.</p>
+                `;
+            }
+
+            // Kecemasan / Susah Tidur / Kejang / Diazepam
+            if (lower.includes('cemas') || lower.includes('ansietas') || lower.includes('insomnia') || lower.includes('susah tidur') || lower.includes('kejang') || lower.includes('diazepam') || lower.includes('penenang')) {
+                return `
+                    <p>Untuk keluhan kecemasan berat, gangguan tidur berlebih, atau ketegangan otot:</p>
+                    <p>Obat seperti <strong>Diazepam</strong> termasuk ke dalam golongan benzodiazepine yang bekerja menenangkan sistem saraf pusat. Obat ini digunakan untuk mengatasi gangguan kecemasan, kejang otot, atau kondisi medis tertentu di bawah pengawasan ketat.</p>
+                    <p><strong>Perhatian Penting:</strong> Dosis dewasa umumnya berkisar antara 2 mg hingga 10 mg (2-4 kali sehari) tergantung keparahan kondisi. Obat ini termasuk <strong>Obat Keras / Psikotropika Wajib Resep Dokter</strong>. Penggunaan tanpa resep atau secara sembarangan tidak diperbolehkan karena dapat menimbulkan rasa kantuk berat, penurunan koordinasi tubuh, serta risiko ketergantungan.</p>
+                `;
+            }
+
+            // Lambung / Maag / Mual / Asam Lambung
+            if (lower.includes('maag') || lower.includes('lambung') || lower.includes('mual') || lower.includes('perih') || lower.includes('gerd')) {
+                return `
+                    <p>Untuk meredakan keluhan <strong>asam lambung, mual, atau perih di ulu hati</strong>, Anda dapat menggunakan antasida antasida kombinasi (Aluminium Hidroksida & Magnesium Hidroksida) atau penekan asam lambung seperti Omeprazole / Ranitidin.</p>
+                    <p><strong>Aturan Pakai:</strong> Antasida dimakan/dikunyah 1 jam sebelum makan atau 2 jam setelah makan dan sebelum tidur. Hindari makanan pedas, asam, kafein, serta makan dalam porsi terlalu besar sekaligus.</p>
+                `;
+            }
+
+            // Flu / Batuk / Pilek
+            if (lower.includes('flu') || lower.includes('batuk') || lower.includes('pilek') || lower.includes('bersin')) {
+                return `
+                    <p>Untuk gejala <strong>flu, bersin-bersin, dan batuk ringan</strong>, Anda dapat menggunakan gabungan antihistamin (seperti CTM atau Cetirizine) untuk meredakan alergi/pilek, serta dekongestan (seperti Pseudoefedrin) jika hidung tersumbat.</p>
+                    <p><strong>Saran Apoteker:</strong> Istirahat yang cukup, perbanyak konsumsi air hangat, dan Anda juga dapat menambah suplemen Vitamin C 1000 mg untuk membantu pemulihan daya tahan tubuh.</p>
+                `;
+            }
+
+            // Response umum jika tidak spesifik
+            return `
+                <p>Terima kasih atas pertanyaannya. Untuk keluhan kesehatan "<em>${escapeHtml(query)}</em>", secara umum disarankan untuk mengidentifikasi gejala utamanya terlebih dahulu.</p>
+                <p>Jika berupa nyeri atau demam ringan, dapat dibantu dengan obat bebas seperti Paracetamol. Namun jika keluhan berlanjut, membutuhkan obat keras, atau memerlukan evaluasi dosis khusus, silakan unggah foto resep dokter Anda atau hubungi saya via WhatsApp agar bisa diulas lebih rinci.</p>
+            `;
+        }
+
+        function escapeHtml(text) {
+            return text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+        }
+
+        /* --- QUEUE SYSTEM --- */
         function generatePatientQueue(e) {
             e.preventDefault();
             const name = document.getElementById('queue-patient-name').value;
@@ -984,7 +944,7 @@ function closeDrugsModal() {
             saveToStorage();
             document.getElementById('queue-form').reset();
             renderQueueBoard();
-            alert(`Nomor antrean Anda berhasil dibuat: ${nextNum}. Silakan pantau status antrean secara real-time.`);
+            alert(`Nomor antrean berhasil dibuat: ${nextNum}.`);
         }
 
         function renderQueueBoard() {
@@ -1018,104 +978,8 @@ function closeDrugsModal() {
             `).join('');
         }
 
-        function renderPharmacistsConsultation() {
-            const container = document.getElementById('pharmacist-selection-list');
-            if(!container) return;
-            container.innerHTML = AppState.pharmacists.map(ph => `
-                <div class="bg-white rounded-3xl p-8 border border-slate-200 shadow-md hover:shadow-xl transition-all space-y-6 text-center">
-                    <div class="relative w-24 h-24 mx-auto">
-                        <div class="w-24 h-24 rounded-full bg-gradient-to-tr from-sage-600 to-sage-400 text-white flex items-center justify-center text-4xl shadow-lg mx-auto">
-                            <i class="fa-solid fa-user-doctor"></i>
-                        </div>
-                        <span class="absolute bottom-0 right-0 w-5 h-5 bg-emerald-500 border-2 border-white rounded-full animate-pulse" title="Status Online Siaga 24 Jam"></span>
-                    </div>
-                    <div class="space-y-1">
-                        <span class="px-3 py-1 bg-emerald-100 text-emerald-800 text-[11px] font-extrabold rounded-full inline-block">Siaga 24 Jam Online</span>
-                        <h3 class="font-extrabold text-slate-800 text-lg mt-2">${ph.name}</h3>
-                        <p class="text-xs text-sage-600 font-bold">${ph.title}</p>
-                        <span class="text-[11px] text-slate-400 block">${ph.sipa}</span>
-                    </div>
-                    <div class="bg-slate-50 p-4 rounded-2xl border border-slate-100">
-                        <p class="text-xs text-slate-600 italic leading-relaxed">"${ph.greeting}"</p>
-                    </div>
-                    <div class="space-y-3 pt-2">
-                        <button onclick="startLiveChat('${ph.id}')" class="w-full py-3.5 bg-sage-600 hover:bg-sage-700 text-white font-bold text-xs rounded-xl shadow-md transition-all flex items-center justify-center gap-2">
-                            <i class="fa-solid fa-comments text-sm"></i> Konsultasi Chat Web Sekarang
-                        </button>
-                        <button onclick="openDirectWhatsApp('Halo ${ph.name}, saya ingin berkonsultasi mengenai obat dan keluhan kesehatan.')" class="w-full py-3.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs rounded-xl shadow-md transition-all flex items-center justify-center gap-2">
-                            <i class="fa-brands fa-whatsapp text-base"></i> Konsultasi WhatsApp Langsung
-                        </button>
-                    </div>
-                </div>
-            `).join('');
-        }
-
-        function startLiveChat(phId) {
-            const ph = AppState.pharmacists.find(p => p.id === phId);
-            if(!ph) return;
-            document.getElementById('active-chat-name').innerText = ph.name;
-            document.getElementById('live-chat-box-container').classList.remove('hidden');
-            document.getElementById('chat-messages-scroll').innerHTML = `
-                <div class="flex justify-start">
-                    <div class="max-w-md p-3.5 rounded-2xl text-xs bg-white text-slate-800 border border-slate-200 shadow-sm">
-                        <p>${ph.greeting}</p>
-                    </div>
-                </div>
-            `;
-            document.getElementById('live-chat-box-container').scrollIntoView({ behavior: 'smooth' });
-        }
-
-        function closeLiveChat() {
-            document.getElementById('live-chat-box-container').classList.add('hidden');
-        }
-
-        function sendChatMessage() {
-            const input = document.getElementById('chat-input-msg');
-            const txt = input.value.trim();
-            if(!txt) return;
-
-            const scrollArea = document.getElementById('chat-messages-scroll');
-            scrollArea.innerHTML += `
-                <div class="flex justify-end">
-                    <div class="max-w-md p-3.5 rounded-2xl text-xs bg-sage-600 text-white shadow-sm">
-                        <p>${txt}</p>
-                    </div>
-                </div>
-            `;
-            input.value = '';
-            scrollArea.scrollTop = scrollArea.scrollHeight;
-
-            // Logika balasan pintar berdasarkan kata kunci pertanyaan pasien
-            setTimeout(() => {
-                let botResponse = "";
-                const lower = txt.toLowerCase();
-
-                if (lower.includes("paracetamol") || lower.includes("pusing") || lower.includes("demam") || lower.includes("sakit kepala")) {
-                    botResponse = `Untuk meredakan demam/sakit kepala, Paracetamol dapat diminum 1-2 tablet (500mg) setiap 4-6 jam jika perlu (Maksimal 4000mg/hari). Informasi aturan pakai & interaksi lengkap dapat dibaca di <a href="https://www.drugs.com/paracetamol.html" target="_blank" class="text-medical-blue underline font-bold">Drugs.com - Paracetamol</a>.`;
-                } else if (lower.includes("amoxicillin") || lower.includes("antibiotik") || lower.includes("infeksi")) {
-                    botResponse = `Amoxicillin adalah antibiotik yang wajib dikonsumsi sesuai resep dokter sampai habis agar tidak terjadi resistensi. Untuk detail dosis dan efek samping, silakan cek <a href="https://www.drugs.com/amoxicillin.html" target="_blank" class="text-medical-blue underline font-bold">Drugs.com - Amoxicillin</a>.`;
-                } else if (lower.includes("vitamin") || lower.includes("imun") || lower.includes("daya tahan")) {
-                    botResponse = `Suplemen Vitamin C + Zinc disarankan diminum 1 kali sehari sesudah makan. Panduan panduan suplemen dapat Anda baca di <a href="https://www.drugs.com/vitamin_c.html" target="_blank" class="text-medical-blue underline font-bold">Drugs.com - Vitamin C</a>.`;
-                } else if (lower.includes("aturan pakai") || lower.includes("dosis") || lower.includes("minum")) {
-                    botResponse = `Aturan minum obat umumnya tergantung golongan obatnya. Untuk mencari petunjuk pemakaian resmi obat Anda, Anda dapat mengecek direktori resmi di <a href="https://www.drugs.com/dosage/" target="_blank" class="text-medical-blue underline font-bold">Drugs.com Dosage Guide</a> atau konsultasikan langsung via WhatsApp kami.`;
-                } else {
-                    botResponse = `Terima kasih atas pertanyaan Anda. Saya apt. Kieve Pratama akan meninjau keluhan Anda. Anda juga dapat memeriksa referensi dosis & efek samping obat terverifikasi di <a href="https://www.drugs.com" target="_blank" class="text-medical-blue underline font-bold">Drugs.com</a> atau langsung hubungi kami via WhatsApp.`;
-                }
-
-                scrollArea.innerHTML += `
-                    <div class="flex justify-start">
-                        <div class="max-w-md p-3.5 rounded-2xl text-xs bg-white text-slate-800 border border-slate-200 shadow-sm space-y-2">
-                            <p>${botResponse}</p>
-                        </div>
-                    </div>
-                `;
-                scrollArea.scrollTop = scrollArea.scrollHeight;
-            }, 1000);
-        }
-
-        function renderCatalog() {
-            applyFilters();
-        }
+        /* --- CATALOG & CART --- */
+        function renderCatalog() { applyFilters(); }
 
         function applyFilters() {
             let filtered = [...AppState.products];
@@ -1155,11 +1019,9 @@ function closeDrugsModal() {
                                 <span class="text-[10px] text-slate-400 block">Harga</span>
                                 <span class="text-sm font-extrabold text-sage-700">Rp ${p.price.toLocaleString('id-ID')}</span>
                             </div>
-                            <div class="flex gap-1.5">
-                                <button onclick="addToCart('${p.id}')" class="px-3.5 py-2 rounded-xl bg-sage-600 hover:bg-sage-700 text-white text-xs font-bold transition-colors shadow-sm flex items-center gap-1">
-                                    <i class="fa-solid fa-cart-plus"></i> <span>Pilih</span>
-                                </button>
-                            </div>
+                            <button onclick="addToCart('${p.id}')" class="px-3.5 py-2 rounded-xl bg-sage-600 hover:bg-sage-700 text-white text-xs font-bold transition-colors shadow-sm flex items-center gap-1">
+                                <i class="fa-solid fa-cart-plus"></i> <span>Pilih</span>
+                            </button>
                         </div>
                     </div>
                 `).join('');
@@ -1172,7 +1034,7 @@ function closeDrugsModal() {
             const existing = AppState.cart.find(i => i.product.id === id);
             if(existing) { existing.quantity += 1; } else { AppState.cart.push({ product: p, quantity: 1 }); }
             updateCartUI();
-            alert(`Produk "${p.name}" dimasukkan ke keranjang.`);
+            alert(`Produk "${p.name}" telah ditambahkan ke keranjang.`);
         }
 
         function updateCartUI() {
@@ -1226,7 +1088,7 @@ function closeDrugsModal() {
             const info = document.getElementById('rx-upload-status-info');
             if(inputElement.files && inputElement.files.length > 0) {
                 info.classList.remove('hidden');
-                info.innerText = "✓ Foto resep dokter berhasil diunggah. Menunggu verifikasi admin/apoteker.";
+                info.innerText = "✓ Foto resep dokter berhasil terunggah.";
             }
         }
 
@@ -1254,22 +1116,22 @@ function closeDrugsModal() {
                 name: name,
                 phone: phone,
                 address: address,
-                items: [{ product: { name: 'Resep Dokter: ' + notes, price: 45000, golongan: 'Obat Keras' }, quantity: 1 }],
-                subtotal: 45000,
+                items: [{ product: { name: 'Resep Dokter: ' + notes, price: 35000, golongan: 'Obat Keras' }, quantity: 1 }],
+                subtotal: 35000,
                 shippingCost: 6000,
-                total: 51000,
+                total: 41000,
                 paymentMethod: 'QRIS',
                 paymentStatus: 'Menunggu Pembayaran',
                 shippingStatus: 'Pesanan Diterima',
                 hasRx: true,
-                rxStatus: 'Menunggu Persetujuan Resep Web'
+                rxStatus: 'Verifikasi Resep Apoteker'
             };
 
             AppState.orders.unshift(newOrder);
             saveToStorage();
             document.getElementById('rx-standalone-form').reset();
             navigateTo('orders');
-            alert('Pesanan resep obat keras berhasil dibuat! Silakan lakukan pembayaran dan pantau status pelacakan.');
+            alert('Pesanan resep berhasil dikirim untuk diverifikasi Apoteker!');
         }
 
         function processCheckout(e) {
@@ -1279,7 +1141,7 @@ function closeDrugsModal() {
             const hasRx = AppState.cart.some(i => i.product.golongan === 'Obat Keras');
             const fileInput = document.getElementById('rx-file-input');
             if(hasRx && (!fileInput || fileInput.files.length === 0)) {
-                alert('Keranjang mengandung obat keras. Anda wajib mengunggah foto resep dokter terlebih dahulu!');
+                alert('Keranjang mengandung obat keras. Wajib mengunggah foto resep dokter!');
                 return;
             }
 
@@ -1310,7 +1172,7 @@ function closeDrugsModal() {
                 paymentStatus: 'Menunggu Pembayaran',
                 shippingStatus: 'Pesanan Diterima',
                 hasRx: hasRx,
-                rxStatus: hasRx ? 'Menunggu Persetujuan Resep Web' : 'Tidak Ada Resep'
+                rxStatus: hasRx ? 'Verifikasi Resep Apoteker' : 'Tidak Ada Resep'
             };
 
             AppState.orders.unshift(newOrder);
@@ -1318,7 +1180,7 @@ function closeDrugsModal() {
             AppState.cart = [];
             updateCartUI();
             navigateTo('orders');
-            alert('Pesanan berhasil dibuat! Nomor Transaksi: ' + trxNo + '. Silakan lakukan pembayaran.');
+            alert('Pesanan berhasil dibuat! Nomor Transaksi: ' + trxNo);
         }
 
         function renderUserOrders() {
@@ -1333,11 +1195,9 @@ function closeDrugsModal() {
                     <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center border-b border-slate-100 pb-3 gap-2">
                         <div>
                             <span class="font-bold text-slate-800 text-sm">Pesanan #${o.id} • Transaksi: <span class="text-sage-700">${o.trxNo}</span></span>
-                            <span class="text-xs text-slate-400 block">${o.date} | Pembaruan Terakhir: ${o.lastUpdated}</span>
+                            <span class="text-xs text-slate-400 block">${o.date} | Diperbarui: ${o.lastUpdated}</span>
                         </div>
-                        <div class="flex items-center gap-2">
-                            <span class="px-3 py-1 bg-slate-100 text-slate-800 rounded-full text-xs font-bold">Metode: ${o.paymentMethod}</span>
-                        </div>
+                        <span class="px-3 py-1 bg-slate-100 text-slate-800 rounded-full text-xs font-bold">Metode: ${o.paymentMethod}</span>
                     </div>
 
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 bg-slate-50 p-4 rounded-2xl text-xs">
@@ -1346,9 +1206,8 @@ function closeDrugsModal() {
                             <span class="px-3 py-1 rounded-full text-xs font-bold ${o.paymentStatus === 'Pembayaran Disetujui' ? 'bg-emerald-100 text-emerald-800' : 'bg-amber-100 text-amber-800'}">${o.paymentStatus}</span>
                         </div>
                         <div>
-                            <span class="font-bold text-slate-500 block mb-1">Status Pengiriman (Real-Time):</span>
+                            <span class="font-bold text-slate-500 block mb-1">Status Pengiriman:</span>
                             <span class="px-3 py-1 rounded-full text-xs font-bold bg-medical-lightBlue text-medical-blue">${o.shippingStatus}</span>
-                            <span class="text-[10px] text-slate-400 block mt-1">(Label: Pembaruan Admin Apotek 24 Jam)</span>
                         </div>
                     </div>
 
@@ -1364,40 +1223,30 @@ function closeDrugsModal() {
             `).join('');
         }
 
-        function openAdminLoginModal() {
-            document.getElementById('admin-login-modal').classList.remove('hidden');
-        }
-
-        function closeAdminLoginModal() {
-            document.getElementById('admin-login-modal').classList.add('hidden');
-        }
+        /* --- ADMIN DASHBOARD --- */
+        function openAdminLoginModal() { document.getElementById('admin-login-modal').classList.remove('hidden'); }
+        function closeAdminLoginModal() { document.getElementById('admin-login-modal').classList.add('hidden'); }
 
         function verifyAdminPin() {
             const pin = document.getElementById('admin-pin-input').value.trim();
             if(pin === 'SEFIZ123' || pin === 'SEFIZ') {
-                AppState.isAdminAuthenticated = true;
                 closeAdminLoginModal();
                 document.getElementById('admin-pin-input').value = '';
                 openAdminDashboard();
             } else {
-                alert('PIN Admin salah! Masukkan PIN resmi (contoh: SEFIZ123)');
+                alert('PIN Salah! Masukkan PIN SEFIZ123');
             }
         }
 
         function openAdminDashboard() {
             document.getElementById('admin-dashboard-modal').classList.remove('hidden');
-            renderAdminDashboardContent();
+            renderAdminQueue();
+            renderAdminPayments();
+            renderAdminOrders();
         }
 
-        function closeAdminDashboard() {
-            document.getElementById('admin-dashboard-modal').classList.add('hidden');
-        }
-
-        function logoutAdmin() {
-            AppState.isAdminAuthenticated = false;
-            closeAdminDashboard();
-            alert('Berhasil keluar dari dashboard admin.');
-        }
+        function closeAdminDashboard() { document.getElementById('admin-dashboard-modal').classList.add('hidden'); }
+        function logoutAdmin() { closeAdminDashboard(); }
 
         function switchAdminTab(tabName) {
             document.querySelectorAll('.admin-tab-content').forEach(el => el.classList.add('hidden'));
@@ -1407,18 +1256,6 @@ function closeDrugsModal() {
 
             document.getElementById(`admin-tab-${tabName}`).classList.remove('hidden');
             document.getElementById(`tab-btn-${tabName}`).className = "px-4 py-2 rounded-xl text-xs font-bold bg-sage-600 text-white transition-colors";
-        }
-
-        function renderAdminDashboardContent() {
-            const timeNow = new Date().toLocaleTimeString('id-ID', {hour:'2-digit', minute:'2-digit'});
-            document.getElementById('admin-queue-last-update').innerText = 'Pembaruan terakhir: ' + timeNow;
-            document.getElementById('admin-pay-last-update').innerText = 'Pembaruan terakhir: ' + timeNow;
-            document.getElementById('admin-ord-last-update').innerText = 'Pembaruan terakhir: ' + timeNow;
-
-            renderAdminQueue();
-            renderAdminPayments();
-            renderAdminOrders();
-            renderAdminComplaints();
         }
 
         function renderAdminQueue() {
@@ -1431,13 +1268,11 @@ function closeDrugsModal() {
                         <span class="font-bold text-slate-800">${q.name}</span> (${q.phone})
                         <p class="text-[11px] text-slate-500">${q.service} • ${q.time}</p>
                     </div>
-                    <div class="flex items-center gap-2">
-                        <select onchange="updateQueueStatus('${q.id}', this.value)" class="px-3 py-1.5 rounded-xl border border-slate-300 font-bold bg-white text-xs">
-                            <option value="Menunggu" ${q.status === 'Menunggu' ? 'selected' : ''}>Menunggu</option>
-                            <option value="Sedang Dilayani" ${q.status === 'Sedang Dilayani' ? 'selected' : ''}>Sedang Dilayani</option>
-                            <option value="Selesai" ${q.status === 'Selesai' ? 'selected' : ''}>Selesai</option>
-                        </select>
-                    </div>
+                    <select onchange="updateQueueStatus('${q.id}', this.value)" class="px-3 py-1.5 rounded-xl border border-slate-300 font-bold bg-white text-xs">
+                        <option value="Menunggu" ${q.status === 'Menunggu' ? 'selected' : ''}>Menunggu</option>
+                        <option value="Sedang Dilayani" ${q.status === 'Sedang Dilayani' ? 'selected' : ''}>Sedang Dilayani</option>
+                        <option value="Selesai" ${q.status === 'Selesai' ? 'selected' : ''}>Selesai</option>
+                    </select>
                 </div>
             `).join('');
         }
@@ -1458,20 +1293,14 @@ function closeDrugsModal() {
             container.innerHTML = AppState.orders.map(o => `
                 <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 text-xs">
                     <div>
-                        <span class="font-bold text-slate-800">Pesanan #${o.id} • TRX: <span class="text-sage-700">${o.trxNo}</span></span>
-                        <p class="text-slate-600">Pasien: <strong>${o.name}</strong> (${o.phone}) • Metode: <strong>${o.paymentMethod}</strong></p>
-                        <p class="text-xs font-black text-sage-700 mt-1">Total: Rp ${o.total.toLocaleString('id-ID')}</p>
+                        <span class="font-bold text-slate-800">Pesanan #${o.id} • TRX: ${o.trxNo}</span>
+                        <p class="text-slate-600">Pasien: <strong>${o.name}</strong> • Total: <strong>Rp ${o.total.toLocaleString('id-ID')}</strong></p>
                     </div>
-                    <div class="flex items-center gap-2">
-                        <select onchange="updatePaymentStatus('${o.id}', this.value)" class="px-3 py-1.5 rounded-xl border border-slate-300 font-bold bg-white text-xs">
-                            <option value="Menunggu Pembayaran" ${o.paymentStatus === 'Menunggu Pembayaran' ? 'selected' : ''}>Menunggu Pembayaran</option>
-                            <option value="Menunggu Verifikasi" ${o.paymentStatus === 'Menunggu Verifikasi' ? 'selected' : ''}>Menunggu Verifikasi</option>
-                            <option value="Pembayaran Disetujui" ${o.paymentStatus === 'Pembayaran Disetujui' ? 'selected' : ''}>Pembayaran Disetujui</option>
-                            <option value="Pembayaran Ditolak" ${o.paymentStatus === 'Pembayaran Ditolak' ? 'selected' : ''}>Pembayaran Ditolak</option>
-                            <option value="Pembayaran Kedaluwarsa" ${o.paymentStatus === 'Pembayaran Kedaluwarsa' ? 'selected' : ''}>Pembayaran Kedaluwarsa</option>
-                            <option value="Pembayaran Dibatalkan" ${o.paymentStatus === 'Pembayaran Dibatalkan' ? 'selected' : ''}>Pembayaran Dibatalkan</option>
-                        </select>
-                    </div>
+                    <select onchange="updatePaymentStatus('${o.id}', this.value)" class="px-3 py-1.5 rounded-xl border border-slate-300 font-bold bg-white text-xs">
+                        <option value="Menunggu Pembayaran" ${o.paymentStatus === 'Menunggu Pembayaran' ? 'selected' : ''}>Menunggu Pembayaran</option>
+                        <option value="Pembayaran Disetujui" ${o.paymentStatus === 'Pembayaran Disetujui' ? 'selected' : ''}>Pembayaran Disetujui</option>
+                        <option value="Pembayaran Ditolak" ${o.paymentStatus === 'Pembayaran Ditolak' ? 'selected' : ''}>Pembayaran Ditolak</option>
+                    </select>
                 </div>
             `).join('');
         }
@@ -1483,7 +1312,6 @@ function closeDrugsModal() {
                 o.lastUpdated = new Date().toLocaleDateString('id-ID', {day:'numeric', month:'short', hour:'2-digit', minute:'2-digit'});
                 saveToStorage();
                 renderUserOrders();
-                alert(`Status pembayaran pesanan #${orderId} diperbarui menjadi: ${status}`);
             }
         }
 
@@ -1494,20 +1322,14 @@ function closeDrugsModal() {
                 <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 text-xs">
                     <div>
                         <span class="font-bold text-slate-800">Pesanan #${o.id} • ${o.name}</span>
-                        <p class="text-slate-600">Pengiriman: ${o.address}</p>
-                        <p class="text-[11px] text-sage-600 font-bold mt-1">Status Pengiriman: ${o.shippingStatus}</p>
+                        <p class="text-slate-600">Alamat: ${o.address}</p>
                     </div>
-                    <div class="flex items-center gap-2">
-                        <select onchange="updateShippingStatus('${o.id}', this.value)" class="px-3 py-1.5 rounded-xl border border-slate-300 font-bold bg-white text-xs">
-                            <option value="Pesanan Diterima" ${o.shippingStatus === 'Pesanan Diterima' ? 'selected' : ''}>Pesanan Diterima</option>
-                            <option value="Pembayaran Dikonfirmasi" ${o.shippingStatus === 'Pembayaran Dikonfirmasi' ? 'selected' : ''}>Pembayaran Dikonfirmasi</option>
-                            <option value="Pesanan Sedang Disiapkan" ${o.shippingStatus === 'Pesanan Sedang Disiapkan' ? 'selected' : ''}>Pesanan Sedang Disiapkan</option>
-                            <option value="Pesanan Siap Dikirim" ${o.shippingStatus === 'Pesanan Siap Dikirim' ? 'selected' : ''}>Pesanan Siap Dikirim</option>
-                            <option value="Dalam Pengiriman" ${o.shippingStatus === 'Dalam Pengiriman' ? 'selected' : ''}>Dalam Pengiriman</option>
-                            <option value="Pesanan Tiba" ${o.shippingStatus === 'Pesanan Tiba' ? 'selected' : ''}>Pesanan Tiba</option>
-                            <option value="Pesanan Dibatalkan" ${o.shippingStatus === 'Pesanan Dibatalkan' ? 'selected' : ''}>Pesanan Dibatalkan</option>
-                        </select>
-                    </div>
+                    <select onchange="updateShippingStatus('${o.id}', this.value)" class="px-3 py-1.5 rounded-xl border border-slate-300 font-bold bg-white text-xs">
+                        <option value="Pesanan Diterima" ${o.shippingStatus === 'Pesanan Diterima' ? 'selected' : ''}>Pesanan Diterima</option>
+                        <option value="Pesanan Sedang Disiapkan" ${o.shippingStatus === 'Pesanan Sedang Disiapkan' ? 'selected' : ''}>Pesanan Sedang Disiapkan</option>
+                        <option value="Dalam Pengiriman" ${o.shippingStatus === 'Dalam Pengiriman' ? 'selected' : ''}>Dalam Pengiriman</option>
+                        <option value="Pesanan Tiba" ${o.shippingStatus === 'Pesanan Tiba' ? 'selected' : ''}>Pesanan Tiba</option>
+                    </select>
                 </div>
             `).join('');
         }
@@ -1519,25 +1341,7 @@ function closeDrugsModal() {
                 o.lastUpdated = new Date().toLocaleDateString('id-ID', {day:'numeric', month:'short', hour:'2-digit', minute:'2-digit'});
                 saveToStorage();
                 renderUserOrders();
-                alert(`Status pengiriman pesanan #${orderId} diperbarui menjadi: ${status}`);
             }
-        }
-
-        function renderAdminComplaints() {
-            const container = document.getElementById('admin-complaints-list-container');
-            if(!container) return;
-            container.innerHTML = AppState.patientComplaints.map(c => `
-                <div class="p-3 bg-slate-50 rounded-2xl border border-slate-200 text-xs space-y-1">
-                    <span class="font-bold text-slate-800">${c.patientName} (${c.time})</span>
-                    <p class="text-slate-600"><strong>Keluhan:</strong> ${c.complaint}</p>
-                    <p class="text-sage-700"><strong>Respon:</strong> ${c.response}</p>
-                </div>
-            `).join('');
-        }
-
-        function filterAdminData(query) {
-            const q = query.toLowerCase();
-            console.log("Searching admin data for:", q);
         }
     </script>
 </body>
