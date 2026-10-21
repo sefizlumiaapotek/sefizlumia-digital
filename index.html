@@ -162,9 +162,13 @@
                             <i class="fa-solid fa-bag-shopping"></i>
                             <span>Pilih Katalog Obat</span>
                         </button>
+                        <button onclick="navigateTo('consultation')" class="px-8 py-4 rounded-2xl bg-sage-500 hover:bg-sage-400 text-white font-bold text-sm shadow-lg transition-all hover:scale-105 flex items-center gap-2">
+                            <i class="fa-solid fa-user-doctor"></i>
+                            <span>Konsultasi Apoteker</span>
+                        </button>
                         <button onclick="navigateTo('queue')" class="px-8 py-4 rounded-2xl bg-amber-500 hover:bg-amber-400 text-slate-900 font-bold text-sm shadow-lg transition-all hover:scale-105 flex items-center gap-2">
                             <i class="fa-solid fa-users-line"></i>
-                            <span>Ambil Nomor Antrean </span>
+                            <span>Ambil Nomor Antrean</span>
                         </button>
                         <button onclick="navigateTo('rx-upload-view')" class="px-8 py-4 rounded-2xl bg-rose-600 hover:bg-rose-500 text-white font-bold text-sm shadow-lg transition-all hover:scale-105 flex items-center gap-2">
                             <i class="fa-solid fa-file-medical"></i>
@@ -414,7 +418,7 @@
                     </div>
                     <h1 class="text-2xl sm:text-4xl font-extrabold">Konsultasi Apoteker 24 Jam</h1>
                     <p class="text-sm text-sage-100">
-                        Diskusikan keluhan kesehatan Anda bersama apoteker profesional kami secara real-time kapan pun dibutuhkan.
+                        Diskusikan keluhan kesehatan dan obat-obatan Anda secara langsung dengan Apoteker Penanggung Jawab kami.
                     </p>
                     <div class="pt-2">
                         <button onclick="openDirectWhatsApp('Halo Apotek Sefizlumia, saya ingin berkonsultasi langsung dengan apoteker.')" class="px-6 py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs rounded-xl shadow-md inline-flex items-center gap-2">
@@ -424,11 +428,11 @@
                 </div>
             </div>
 
-            <!-- Pharmacists List (Only 1 Pharmacist Displayed) -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6" id="pharmacist-selection-list"></div>
+            <!-- Single Pharmacist Consultation Card -->
+            <div class="max-w-xl mx-auto" id="pharmacist-selection-list"></div>
 
             <!-- Chat Box -->
-            <div id="live-chat-box-container" class="hidden bg-white rounded-3xl border border-slate-200 shadow-xl overflow-hidden">
+            <div id="live-chat-box-container" class="hidden max-w-3xl mx-auto bg-white rounded-3xl border border-slate-200 shadow-xl overflow-hidden mt-6">
                 <div class="bg-sage-700 text-white p-4 sm:p-6 flex items-center justify-between">
                     <div>
                         <h3 id="active-chat-name" class="font-bold text-base">Nama Apoteker</h3>
@@ -761,7 +765,7 @@
                     name: 'apt. Kieve Pratama, S.Farm',
                     title: 'Apoteker Penanggung Jawab Utama (Siaga 24 Jam)',
                     sipa: 'SIPA: 19910412/SIPA-32.75/2021/1042',
-                    greeting: 'Halo! Saya apt. Kieve Pratama dari Apotek Sefizlumia 24 Jam. Silakan, ada keluhan apa yang bisa saya bantu hari ini?'
+                    greeting: 'Halo! Saya apt. Kieve Pratama, S.Farm dari Apotek Sefizlumia 24 Jam. Ada keluhan kesehatan atau pertanyaan seputar penggunaan obat yang bisa saya bantu hari ini?'
                 }
             ],
             products: [
@@ -909,21 +913,28 @@
             const container = document.getElementById('pharmacist-selection-list');
             if(!container) return;
             container.innerHTML = AppState.pharmacists.map(ph => `
-                <div class="bg-white rounded-3xl p-6 border border-slate-200 shadow-sm hover:shadow-xl transition-all space-y-4 flex flex-col justify-between">
-                    <div class="space-y-1">
-                        <span class="inline-block w-2 h-2 rounded-full bg-emerald-500 animate-pulse mr-1"></span>
-                        <span class="text-[10px] text-emerald-600 font-bold uppercase">Siaga 24 Jam</span>
-                        <h3 class="font-bold text-slate-800 text-sm">${ph.name}</h3>
-                        <p class="text-[11px] text-sage-600 font-semibold">${ph.title}</p>
-                        <span class="text-[10px] text-slate-400 block">${ph.sipa}</span>
+                <div class="bg-white rounded-3xl p-8 border border-slate-200 shadow-md hover:shadow-xl transition-all space-y-6 text-center">
+                    <div class="relative w-24 h-24 mx-auto">
+                        <div class="w-24 h-24 rounded-full bg-gradient-to-tr from-sage-600 to-sage-400 text-white flex items-center justify-center text-4xl shadow-lg mx-auto">
+                            <i class="fa-solid fa-user-doctor"></i>
+                        </div>
+                        <span class="absolute bottom-0 right-0 w-5 h-5 bg-emerald-500 border-2 border-white rounded-full animate-pulse" title="Status Online Siaga 24 Jam"></span>
                     </div>
-                    <p class="text-xs text-slate-600 italic bg-slate-50 p-3 rounded-xl">"${ph.greeting}"</p>
-                    <div class="space-y-2">
-                        <button onclick="startLiveChat('${ph.id}')" class="w-full py-2.5 bg-sage-600 hover:bg-sage-700 text-white font-bold text-xs rounded-xl shadow-md transition-all flex items-center justify-center gap-2">
-                            <i class="fa-solid fa-comments"></i> Konsultasi Live Web
+                    <div class="space-y-1">
+                        <span class="px-3 py-1 bg-emerald-100 text-emerald-800 text-[11px] font-extrabold rounded-full inline-block">Siaga 24 Jam Online</span>
+                        <h3 class="font-extrabold text-slate-800 text-lg mt-2">${ph.name}</h3>
+                        <p class="text-xs text-sage-600 font-bold">${ph.title}</p>
+                        <span class="text-[11px] text-slate-400 block">${ph.sipa}</span>
+                    </div>
+                    <div class="bg-slate-50 p-4 rounded-2xl border border-slate-100">
+                        <p class="text-xs text-slate-600 italic leading-relaxed">"${ph.greeting}"</p>
+                    </div>
+                    <div class="space-y-3 pt-2">
+                        <button onclick="startLiveChat('${ph.id}')" class="w-full py-3.5 bg-sage-600 hover:bg-sage-700 text-white font-bold text-xs rounded-xl shadow-md transition-all flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-comments text-sm"></i> Konsultasi Chat Web Sekarang
                         </button>
-                        <button onclick="openDirectWhatsApp('Halo ${ph.name}, saya ingin berkonsultasi mengenai obat.')" class="w-full py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs rounded-xl shadow-md transition-all flex items-center justify-center gap-2">
-                            <i class="fa-brands fa-whatsapp text-sm"></i> WhatsApp Langsung
+                        <button onclick="openDirectWhatsApp('Halo ${ph.name}, saya ingin berkonsultasi mengenai obat dan keluhan kesehatan.')" class="w-full py-3.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs rounded-xl shadow-md transition-all flex items-center justify-center gap-2">
+                            <i class="fa-brands fa-whatsapp text-base"></i> Konsultasi WhatsApp Langsung
                         </button>
                     </div>
                 </div>
