@@ -70,18 +70,17 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20 gap-4">
                 <!-- Brand Logo -->
-                <a href="#" onclick="navigateTo('home'); return false;" class="flex items-center gap-3 group">
-                    <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-sage-700 to-sage-500 text-white flex items-center justify-center shadow-md shadow-sage-200 group-hover:scale-105 transition-transform">
-                        <i class="fa-solid fa-prescription-bottle-medical text-2xl"></i>
-                    </div>
-                    <div>
-                        <div class="flex items-center gap-1">
-                            <span class="text-2xl font-extrabold tracking-tight text-sage-800">Apotek Sefizlumia</span>
-                            <span class="w-2 h-2 rounded-full bg-medical-blue"></span>
-                        </div>
-                        <p class="text-[10px] font-semibold uppercase tracking-wider text-sage-600 -mt-1">SAHABAT KESEHATAN ANDA</p>
-                    </div>
-                </a>
+                <a<!-- Brand Logo -->
+<a href="#" onclick="navigateTo('home'); return false;" class="flex items-center gap-3 group">
+    <img src="logo-sefizlumia.png" alt="Apotek Sefizlumia Logo" class="w-12 h-12 object-contain group-hover:scale-105 transition-transform">
+    <div>
+        <div class="flex items-center gap-1">
+            <span class="text-2xl font-extrabold tracking-tight text-sage-800">Sefizlumia</span>
+            <span class="w-2 h-2 rounded-full bg-medical-blue"></span>
+        </div>
+        <p class="text-[10px] font-semibold uppercase tracking-wider text-sage-600 -mt-1">- APOTEK DIGITAL -</p>
+    </div>
+</a>
 
                 <!-- Desktop Search Bar -->
                 <div class="hidden lg:flex flex-1 max-w-md mx-6">
@@ -976,11 +975,27 @@
             input.value = '';
             scrollArea.scrollTop = scrollArea.scrollHeight;
 
+            // Logika balasan pintar berdasarkan kata kunci pertanyaan pasien
             setTimeout(() => {
+                let botResponse = "";
+                const lower = txt.toLowerCase();
+
+                if (lower.includes("paracetamol") || lower.includes("pusing") || lower.includes("demam") || lower.includes("sakit kepala")) {
+                    botResponse = `Untuk meredakan demam/sakit kepala, Paracetamol dapat diminum 1-2 tablet (500mg) setiap 4-6 jam jika perlu (Maksimal 4000mg/hari). Informasi aturan pakai & interaksi lengkap dapat dibaca di <a href="https://www.drugs.com/paracetamol.html" target="_blank" class="text-medical-blue underline font-bold">Drugs.com - Paracetamol</a>.`;
+                } else if (lower.includes("amoxicillin") || lower.includes("antibiotik") || lower.includes("infeksi")) {
+                    botResponse = `Amoxicillin adalah antibiotik yang wajib dikonsumsi sesuai resep dokter sampai habis agar tidak terjadi resistensi. Untuk detail dosis dan efek samping, silakan cek <a href="https://www.drugs.com/amoxicillin.html" target="_blank" class="text-medical-blue underline font-bold">Drugs.com - Amoxicillin</a>.`;
+                } else if (lower.includes("vitamin") || lower.includes("imun") || lower.includes("daya tahan")) {
+                    botResponse = `Suplemen Vitamin C + Zinc disarankan diminum 1 kali sehari sesudah makan. Panduan panduan suplemen dapat Anda baca di <a href="https://www.drugs.com/vitamin_c.html" target="_blank" class="text-medical-blue underline font-bold">Drugs.com - Vitamin C</a>.`;
+                } else if (lower.includes("aturan pakai") || lower.includes("dosis") || lower.includes("minum")) {
+                    botResponse = `Aturan minum obat umumnya tergantung golongan obatnya. Untuk mencari petunjuk pemakaian resmi obat Anda, Anda dapat mengecek direktori resmi di <a href="https://www.drugs.com/dosage/" target="_blank" class="text-medical-blue underline font-bold">Drugs.com Dosage Guide</a> atau konsultasikan langsung via WhatsApp kami.`;
+                } else {
+                    botResponse = `Terima kasih atas pertanyaan Anda. Saya apt. Kieve Pratama akan meninjau keluhan Anda. Anda juga dapat memeriksa referensi dosis & efek samping obat terverifikasi di <a href="https://www.drugs.com" target="_blank" class="text-medical-blue underline font-bold">Drugs.com</a> atau langsung hubungi kami via WhatsApp.`;
+                }
+
                 scrollArea.innerHTML += `
                     <div class="flex justify-start">
-                        <div class="max-w-md p-3.5 rounded-2xl text-xs bg-white text-slate-800 border border-slate-200 shadow-sm">
-                            <p>Terima kasih pesannya. Apoteker siaga kami akan segera membantu Anda via web maupun WhatsApp.</p>
+                        <div class="max-w-md p-3.5 rounded-2xl text-xs bg-white text-slate-800 border border-slate-200 shadow-sm space-y-2">
+                            <p>${botResponse}</p>
                         </div>
                     </div>
                 `;
