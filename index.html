@@ -656,7 +656,7 @@
             <div class="flex flex-col md:flex-row md:items-center justify-between border-b border-slate-100 pb-4 gap-4">
                 <div>
                     <h3 class="text-xl font-extrabold text-slate-800">Dashboard Apoteker & Admin Sefizlumia</h3>
-                    <p class="text-xs text-slate-500">Kelola antrean pasien, status pembayaran, dan pengiriman obat</p>
+                    <p class="text-xs text-slate-500">Kelola antrean pasien, status verifikasi resep, pembayaran, dan pengiriman obat</p>
                 </div>
                 <div class="flex items-center gap-3">
                     <button onclick="logoutAdmin()" class="px-3.5 py-2 bg-rose-50 text-rose-600 rounded-xl text-xs font-bold">Keluar</button>
@@ -666,7 +666,7 @@
             <!-- Tabs Navigation -->
             <div class="flex flex-wrap gap-2 border-b border-slate-100 pb-3">
                 <button onclick="switchAdminTab('queue')" id="tab-btn-queue" class="px-4 py-2 rounded-xl text-xs font-bold bg-sage-600 text-white transition-colors">Kelola Antrean</button>
-                <button onclick="switchAdminTab('payments')" id="tab-btn-payments" class="px-4 py-2 rounded-xl text-xs font-bold bg-slate-100 text-slate-700 transition-colors">Verifikasi Pembayaran</button>
+                <button onclick="switchAdminTab('payments')" id="tab-btn-payments" class="px-4 py-2 rounded-xl text-xs font-bold bg-slate-100 text-slate-700 transition-colors">Verifikasi Pembayaran & Resep</button>
                 <button onclick="switchAdminTab('orders')" id="tab-btn-orders" class="px-4 py-2 rounded-xl text-xs font-bold bg-slate-100 text-slate-700 transition-colors">Pengiriman Obat</button>
             </div>
 
@@ -678,7 +678,7 @@
 
             <!-- Tab Content: Payments -->
             <div id="admin-tab-payments" class="admin-tab-content space-y-4 hidden">
-                <h4 class="font-bold text-slate-800 text-sm">Verifikasi Transaksi Pembayaran</h4>
+                <h4 class="font-bold text-slate-800 text-sm">Verifikasi Transaksi Pembayaran & Resep Dokter</h4>
                 <div id="admin-payments-list-container" class="space-y-3"></div>
             </div>
 
@@ -1200,10 +1200,14 @@
                         <span class="px-3 py-1 bg-slate-100 text-slate-800 rounded-full text-xs font-bold">Metode: ${o.paymentMethod}</span>
                     </div>
 
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 bg-slate-50 p-4 rounded-2xl text-xs">
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 bg-slate-50 p-4 rounded-2xl text-xs">
                         <div>
                             <span class="font-bold text-slate-500 block mb-1">Status Pembayaran:</span>
                             <span class="px-3 py-1 rounded-full text-xs font-bold ${o.paymentStatus === 'Pembayaran Disetujui' ? 'bg-emerald-100 text-emerald-800' : 'bg-amber-100 text-amber-800'}">${o.paymentStatus}</span>
+                        </div>
+                        <div>
+                            <span class="font-bold text-slate-500 block mb-1">Status Resep:</span>
+                            <span class="px-3 py-1 rounded-full text-xs font-bold ${o.rxStatus === 'Resep Disetujui Apoteker' ? 'bg-emerald-100 text-emerald-800' : o.rxStatus === 'Verifikasi Resep Apoteker' ? 'bg-amber-100 text-amber-800' : 'bg-slate-200 text-slate-700'}">${o.rxStatus || 'Tidak Ada Resep'}</span>
                         </div>
                         <div>
                             <span class="font-bold text-slate-500 block mb-1">Status Pengiriman:</span>
@@ -1295,14 +1299,34 @@
                     <div>
                         <span class="font-bold text-slate-800">Pesanan #${o.id} • TRX: ${o.trxNo}</span>
                         <p class="text-slate-600">Pasien: <strong>${o.name}</strong> • Total: <strong>Rp ${o.total.toLocaleString('id-ID')}</strong></p>
+                        ${o.hasRx ? `<p class="text-[11px] text-rose-600 font-bold mt-1"><i class="fa-solid fa-file-prescription"></i> Melampirkan Resep Dokter</p>` : ''}
                     </div>
-                    <select onchange="updatePaymentStatus('${o.id}', this.value)" class="px-3 py-1.5 rounded-xl border border-slate-300 font-bold bg-white text-xs">
-                        <option value="Menunggu Pembayaran" ${o.paymentStatus === 'Menunggu Pembayaran' ? 'selected' : ''}>Menunggu Pembayaran</option>
-                        <option value="Pembayaran Disetujui" ${o.paymentStatus === 'Pembayaran Disetujui' ? 'selected' : ''}>Pembayaran Disetujui</option>
-                        <option value="Pembayaran Ditolak" ${o.paymentStatus === 'Pembayaran Ditolak' ? 'selected' : ''}>Pembayaran Ditolak</option>
-                    </select>
+                    <div class="flex flex-col sm:flex-row gap-2">
+                        ${o.hasRx ? `
+                        <select onchange="updateRxStatus('${o.id}', this.value)" class="px-3 py-1.5 rounded-xl border border-rose-300 font-bold bg-rose-50 text-rose-800 text-xs">
+                            <option value="Verifikasi Resep Apoteker" ${o.rxStatus === 'Verifikasi Resep Apoteker' ? 'selected' : ''}>Verifikasi Resep Apoteker</option>
+                            <option value="Resep Disetujui Apoteker" ${o.rxStatus === 'Resep Disetujui Apoteker' ? 'selected' : ''}>Resep Disetujui Apoteker</option>
+                            <option value="Resep Ditolak" ${o.rxStatus === 'Resep Ditolak' ? 'selected' : ''}>Resep Ditolak</option>
+                        </select>
+                        ` : ''}
+                        <select onchange="updatePaymentStatus('${o.id}', this.value)" class="px-3 py-1.5 rounded-xl border border-slate-300 font-bold bg-white text-xs">
+                            <option value="Menunggu Pembayaran" ${o.paymentStatus === 'Menunggu Pembayaran' ? 'selected' : ''}>Menunggu Pembayaran</option>
+                            <option value="Pembayaran Disetujui" ${o.paymentStatus === 'Pembayaran Disetujui' ? 'selected' : ''}>Pembayaran Disetujui</option>
+                            <option value="Pembayaran Ditolak" ${o.paymentStatus === 'Pembayaran Ditolak' ? 'selected' : ''}>Pembayaran Ditolak</option>
+                        </select>
+                    </div>
                 </div>
             `).join('');
+        }
+
+        function updateRxStatus(orderId, status) {
+            const o = AppState.orders.find(item => item.id === orderId);
+            if(o) {
+                o.rxStatus = status;
+                o.lastUpdated = new Date().toLocaleDateString('id-ID', {day:'numeric', month:'short', hour:'2-digit', minute:'2-digit'});
+                saveToStorage();
+                renderUserOrders();
+            }
         }
 
         function updatePaymentStatus(orderId, status) {
